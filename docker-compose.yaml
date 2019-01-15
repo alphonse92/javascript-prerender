@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  chromium:
+    image: 'alpeware/chrome-headless-trunk'
+  prerender:
+    depends_on:
+      - chromium
+    links:
+      - chromium
+    build: prerender
+    command: npm start
+    volumes:
+        - ./prerender/tmp/:/tmp/prerender
+        - ./prerender:/usr/src/app
+    environment:
+      NODE_ENV: "development"
+      port: 3000
+      chromium: "http://chromium:9222"
+    ports:
+      - "3000:3000"
+
+
+  
+
+
+
+
+
+

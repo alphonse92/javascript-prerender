@@ -1,0 +1,29 @@
+{
+  "name": "javascript-prerender",
+  "version": "1.0.0",
+  "description": "Javascript microservice to prerender javascript single pages",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node server.js",
+    "dev": "nodemon -L --watch ./app --watch ./config --exec babel-node server.js"
+  },
+  "author": "Eliecer Alejandro Molina Vergel",
+  "email": "alejandro_mover@hotmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "memory-cache": "^0.2.0",
+    "puppeteer": "^1.11.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "nodemon": "^1.18.9"
+  }
+}
