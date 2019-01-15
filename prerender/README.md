@@ -49,8 +49,12 @@ I seeking for contributors.
 ### Issues 
 
 #### Vanilla JS
+
 #### Angular JS
+
 #### Angular 2+ 
+
 #### VueJs
+
 #### ReactJS
 
