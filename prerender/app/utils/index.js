@@ -32,14 +32,11 @@ export function cleanHeaders(headers) {
       const value = headers[header]
       if (hasADirtyChar(value)) {
         const val = JSON.stringify(value)
-        console.log('cleaning', val)
         let clean = cleanString(val)
         clean = clean.substr(1, clean.length - 2)
-        console.log("cleared", clean)
         out[header] = clean
       }
     })
-
   return out
 }
 

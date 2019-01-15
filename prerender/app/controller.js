@@ -2,14 +2,17 @@ import cache from 'memory-cache'
 import { PuppeteerRequest } from './PuppeteerRequest.class';
 import { debug, saveFile } from './utils';
 import config from './../config'
+import querystring from 'querystring'
 
 function getTarget(req) {
   const header = config.header_target;
   debug("INFO", "Header", header, !!req.headers[header] ? "was found" : "was not found");
-  let base = req.baseUrl; // path/to/asset/logo.png
+  const urlquery = querystring.stringify(req.query).toString()
+  const base = req.baseUrl; // path/to/asset/logo.png
   let target = req.headers[header] || config.target; // http://target/
   target += base; //"http://target/path/to/asset/logo.png"
-  return target;
+  if (urlquery.length) target = target + '/?' + urlquery.toString();
+  return target
 }
 
 export class Controller {
@@ -19,7 +22,11 @@ export class Controller {
   }
 
   send(res, headers, data) {
-    res.set(headers)
+    Object.keys(headers)
+      .forEach(header => {
+        const value = headers[header];
+        res.setHeader(header, value)
+      })
     res.send(data)
   }
 
@@ -44,7 +51,7 @@ export class Controller {
     //config.cache > 0, cache it and the expiration time is config.cache
     //if config.cache === 0 and doesnt exist a cached request
     const cache = +config.cache
-    if (cache!== 0) {
+    if (cache !== 0) {
       //create date 
       let expiresAt = new Date();
       //adding to date the amount of seconds that cache is valid
@@ -86,8 +93,8 @@ export class Controller {
     debug('INFO', 'cache for target: ', target, 'NOT FOUND')
     const puppeterRequest = new PuppeteerRequest(this.puppeteerConnection)
     try {
-      debug("INFO", req.method.toUpperCase(), "requesting for :", req.baseUrl);
-      await puppeterRequest.goto(target)
+      debug("INFO", req.method.toUpperCase(), "requesting for :", target);
+      await puppeterRequest.goto(req, target)
       this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
     }
     catch (e) {
