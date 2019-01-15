@@ -18,7 +18,7 @@ RUN npm install --unsafe-perm || \
 
 COPY ./ ./
 
-RUN mkdir /tmp/prerender
+RUN mkdir ./tmp/prerender/
 
 EXPOSE 3000
 
