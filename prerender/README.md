@@ -81,6 +81,7 @@ I seeking for contributors.
 3. Use redis instead of memory-cache
 4. Create a gateway
 5. Create tests
+6. add security
 
 ## No tested behavior
 
@@ -90,7 +91,7 @@ We need test the next:
 2. when run in local env
 3. when run in production env
 4. when run in any env
-
+5. security problems, testing with certificates (for example)
 
 ## Know Issues
 
