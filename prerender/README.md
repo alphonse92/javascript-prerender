@@ -4,15 +4,15 @@ Javascript prerender is a microservice to prerendering javascript single pages, 
 
 # Installlation
 
-´´´sh
+```sh
 docker-compose build
-´´´
+```
 
 # Run 
 
-´´sh
+```sh
 docker-compose run
-´´´
+```
 
 # Documentation
 
