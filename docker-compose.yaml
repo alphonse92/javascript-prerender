@@ -1,8 +1,12 @@
 version: '3.3'
 services:
   chromium:
+    name: 'chromium'
     image: 'alpeware/chrome-headless-trunk'
+    volumes:
+      /chromium/data:/data alpeware/chrome-headless-trunk
   prerender:
+    name: 'prerender'
     depends_on:
       - chromium
     links:
@@ -16,6 +20,7 @@ services:
       NODE_ENV: "development"
       port: 3000
       chromium: "http://chromium:9222"
+      cache: 0
     ports:
       - "3000:3000"
 
