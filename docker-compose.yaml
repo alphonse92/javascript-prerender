@@ -1,12 +1,10 @@
 version: '3.3'
 services:
   chromium:
-    name: 'chromium'
     image: 'alpeware/chrome-headless-trunk'
     volumes:
-      - /chromium/data:/data alpeware/chrome-headless-trunk
+      - ./chromium/data:/data alpeware/chrome-headless-trunk
   prerender:
-    name: 'prerender'
     depends_on:
       - chromium
     links:
