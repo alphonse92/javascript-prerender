@@ -22,10 +22,16 @@ There are 3 types of changes (lets call it as tchange)
 
 #### Branch Naming
 
-[microservice-name]/[tchange]/[issue]/[little-description]
+[tchange]/[microservice-name]/[issue]/[little-description]
 
 for example:
 root/feature/1/updating-readme
 
+### Issue namming
+
+[tchange]/[microservice-name] [title]
+
+for example
+bug/prerender the headers is not properly seted at response
 
 
