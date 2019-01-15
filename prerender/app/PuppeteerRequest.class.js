@@ -49,8 +49,8 @@ export class PuppeteerRequest {
 
 
   setHeaders(headers) {
-    delete this.headers["content-encoding"];
-    this.headers = cleanHeaders(this.headers)
+    // delete this.headers["content-encoding"];
+    this.headers = cleanHeaders(headers)
     if (isContentTypeImage(this.headers))
       headers["content-type"] = headers["content-type"]
         .split(";")
@@ -59,7 +59,7 @@ export class PuppeteerRequest {
   }
 
   getHeaders() {
-    return this.getHeaders
+    return this.headers
   }
 
   setResponse(response) {

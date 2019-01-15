@@ -33,6 +33,7 @@ export class Controller {
   }
 
   async sendAndCache(target, res, headers, data) {
+    debug('INFO', 'sending data, headers are', headers)
     await this.cacheResponse(target, { headers, data })
     this.send(res, headers, data)
   }
@@ -42,7 +43,8 @@ export class Controller {
     //config.cache === 0 , doesnt cache
     //config.cache > 0, cache it and the expiration time is config.cache
     //if config.cache === 0 and doesnt exist a cached request
-    if (config.cache !== 0) {
+    const cache = +config.cache
+    if (cache!== 0) {
       //create date 
       let expiresAt = new Date();
       //adding to date the amount of seconds that cache is valid
@@ -80,9 +82,6 @@ export class Controller {
 
   async middleware(req, res, next) {
     const target = getTarget(req)
-    // console.log('cache keys', cache.keys())
-    // this.isCachedResponseExpired(target)
-    // return res.send('ok')
     if (!this.isCachedResponseExpired(target)) return this.sendFromCache(res)
     debug('INFO', 'cache for target: ', target, 'NOT FOUND')
     const puppeterRequest = new PuppeteerRequest(this.puppeteerConnection)
