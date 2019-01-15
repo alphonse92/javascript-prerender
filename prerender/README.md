@@ -49,7 +49,7 @@ I seeking for contributors.
 ### Issues 
 
 #### Vanilla JS
-#### AngularJS
+#### Angular JS
 #### Angular 2+ 
 #### VueJs
 #### ReactJS
