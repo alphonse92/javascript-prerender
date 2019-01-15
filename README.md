@@ -34,4 +34,8 @@ root/feature/1/updating-readme
 for example
 bug/prerender the headers is not properly seted at response
 
+### Releaseing
+
+On each branch you must updating the RELEASE.md file
+
 
