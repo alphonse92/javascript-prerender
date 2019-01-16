@@ -43,7 +43,8 @@ const base_conf = {
 	userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
 	cache_path: './tmp/prerender/',
 	chromium: 'http://localhost:9222',
-	header_target: 'x-prerender-target'
+	header_target: 'x-prerender-target',
+	cache:1
 }
 
 const base_headers = {}

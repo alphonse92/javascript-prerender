@@ -25,13 +25,19 @@ export const cleanString = (str) => str
   .replace(/\\f/g, "\\f");
 
 export function cleanHeaders(headers) {
+  const out = {}
   Object
     .keys(headers)
     .forEach((header) => {
       const value = headers[header]
-      if (hasADirtyChar(value)) headers[header] = cleanString(JSON.stringify(value))
+      if (hasADirtyChar(value)) {
+        const val = JSON.stringify(value)
+        let clean = cleanString(val)
+        clean = clean.substr(1, clean.length - 2)
+        out[header] = clean
+      }
     })
-  return headers
+  return out
 }
 
 export function isContentTypeImage(headers) {

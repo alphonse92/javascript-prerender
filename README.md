@@ -1,7 +1,26 @@
-# javascript-prerender
+# Javascript prerender microservice ecosystem
+
+
+# Prerequisites
+
+1. docker
+2. docker-compose
+
+# Configuration
+
+For configuration topics please read the next links
 
 1. Prerender microservice readme : https://github.com/alphonse92/javascript-prerender/
 2. Gateway microservice readme: 
+
+
+# Run 
+
+1. docker-compose build
+2. docker-compose run
+
+3. love to programing <3
+
 
 # Gitflow
 

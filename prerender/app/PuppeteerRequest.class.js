@@ -2,28 +2,9 @@ import { cleanHeaders, isContentTypeImage, debug } from './utils'
 import { NotAllowedToRender } from './errors';
 import config from './../config'
 
-async function resolveHeadlessResponse(page, puppeteerResponse) {
-  debug("INFO", "resolveHeadlessResponse");
-  const isHtml = valideHtmlResponse(puppeteerResponse)
-  return isHtml ? page.content() : puppeteerResponse.buffer();
-}
 
-async function valideHtmlResponse(puppeteerResponse) {
-  const bf = await puppeteerResponse.buffer()
-  let bfString = bf.toString('utf8');
-  let strings = [
-    "<!DOCTYPE html>",
-    "<html",
-    "html>",
-    "<body",
-    "body>"
-  ]
-  for (let str in strings) {
-    if (bfString.match(new RegExp(strings[str]), "i"))
-      return true
-  }
-  return false
-}
+
+
 
 const valideAccessToResource = (baseUrl, target) => {
   let passFilter = !config.filter || (typeof config.filter === "function" && config.filter(baseUrl, target));
@@ -36,30 +17,72 @@ export class PuppeteerRequest {
     this.headers = {}
   }
 
-  async  goto(target, opt = { waitUntil: "networkidle2", navigation: { timeout: 30000 } }) {
+  async  goto(req, target, opt = { waitUntil: "networkidle2", navigation: { timeout: 30000 } }) {
+
     valideAccessToResource(target)
+
     const page = await this.browser.newPage()
+    const requestMethod = req.method
+    let headers = req.headers
+
+    if (headers && Object.keys(headers))
+      headers = cleanHeaders(headers)
+
+    if (requestMethod && requestMethod.toUpperCase() === 'GET') {
+      await page.setRequestInterception(true);
+      page.on('request', interceptedRequest => {
+        const method = requestMethod.toUpperCase()
+        const data = { method }
+        if (req.body) data.postData = req.body
+        interceptedRequest.continue(data);
+      });
+    }
+
     const puppeteerResponse = await page.goto(target, opt)
     this.setHeaders(puppeteerResponse.headers())
-    this.setResponse(await resolveHeadlessResponse(page, puppeteerResponse))
+    this.setResponse(await this.resolveHeadlessResponse(page, puppeteerResponse))
     debug("INFO", "closing page")
     return await page.close()
   }
 
+  async resolveHeadlessResponse(page, puppeteerResponse) {
+    debug("INFO", "resolveHeadlessResponse");
+    const isHtml = await this.valideHtmlResponse(page, puppeteerResponse)
+    let response
+    if (isHtml) {
+      response = await page.content()
+    } else {
+      response = await puppeteerResponse.buffer();
+    }
+    return response
+  }
 
+  async  valideHtmlResponse(page, puppeteerResponse) {
+    const contenttype = this.headers['content-type']
+    if (contenttype) {
+      return contenttype.split(';')[0].trim() === 'text/html'
+    }
+
+    const Element = await page.$('html')
+    const rta = !!Element
+    return rta
+  }
 
   setHeaders(headers) {
-    delete this.headers["content-encoding"];
-    this.headers = cleanHeaders(this.headers)
+    delete headers["content-encoding"];
+    this.headers = cleanHeaders(headers)
     if (isContentTypeImage(this.headers))
-      headers["content-type"] = headers["content-type"]
+      this.headers["content-type"] = this.headers["content-type"]
         .split(";")
         .filter((content) => content.indexOf("charset") < 0)
         .join(";")
+
+
+
   }
 
   getHeaders() {
-    return this.getHeaders
+    return this.headers
   }
 
   setResponse(response) {

@@ -2,6 +2,8 @@ version: '3.3'
 services:
   chromium:
     image: 'alpeware/chrome-headless-trunk'
+    volumes:
+      - ./chromium/data:/data alpeware/chrome-headless-trunk
   prerender:
     depends_on:
       - chromium
@@ -14,8 +16,11 @@ services:
         - ./prerender:/usr/src/app
     environment:
       NODE_ENV: "development"
+      env: 'development'
       port: 3000
       chromium: "http://chromium:9222"
+      target: 'https://pallco.com.mx/'
+      cache: 0
     ports:
       - "3000:3000"
 
