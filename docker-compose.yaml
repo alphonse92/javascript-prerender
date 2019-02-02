@@ -1,5 +1,7 @@
 version: '3.3'
 services:
+  redis:
+    image: redis
   chromium:
     image: 'alpeware/chrome-headless-trunk'
     volumes:
