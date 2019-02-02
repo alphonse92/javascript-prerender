@@ -75,16 +75,18 @@ export class Controller {
     await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers)
 
   }
+  
   async initCacheResponse(target) {
     this.response_cache = {
       data: await cacheSystem.get(target + postfixForCachedData.DATA),
       headers: await cacheSystem.get(target + postfixForCachedData.HEADERS),
     }
   }
+
   isValidTheCachedResponse() {
     return !!this.response_cache.data
-
   }
+
   sendNotCachedData(target, req, res, next) {
     debug('INFO', 'cache for target: ', target, 'NOT FOUND')
     const puppeterRequest = new PuppeteerRequest(this.puppeteerConnection)

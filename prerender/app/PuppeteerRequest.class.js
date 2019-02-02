@@ -1,5 +1,5 @@
 import { cleanHeaders, isContentTypeImage, debug } from './utils'
-import { NotAllowedToRender } from './errors';
+import { NotAllowedToRender } from './lib/errors';
 import config from './../config'
 
 

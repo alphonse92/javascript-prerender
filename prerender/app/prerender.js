@@ -3,7 +3,7 @@ import cache from 'memory-cache'
 import puppeteer from 'puppeteer';
 import request from 'request-promise-native'
 
-import { ChromiumInvalidProtocol, } from './errors';
+import { ChromiumInvalidProtocol, } from './lib/errors';
 import { Controller } from './controller';
 import { debug } from './utils'
 import config from '../config'
