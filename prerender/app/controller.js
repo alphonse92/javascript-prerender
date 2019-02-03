@@ -65,10 +65,8 @@ export class Controller {
 
     if (time > 0) {
       debug('INFO', 'must cache with  ', time, 'seconds', target)
-      const expiresAt = new Date();
-      expiresAt.setSeconds(expiresAt.getSeconds() + time);
-      await this.cacheSystem.set(target + postfixForCachedData.DATA, data, 'EX', expiresAt)
-      await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers, 'EX', expiresAt)
+      await this.cacheSystem.set(target + postfixForCachedData.DATA, data, 'EX', time)
+      await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers, 'EX', time)
       return
     }
     debug('INFO', 'must cache and it will never expire ', target)
