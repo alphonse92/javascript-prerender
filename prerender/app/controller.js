@@ -57,12 +57,14 @@ export class Controller {
   async  cacheResponse(target, dataToBeStored) {
 
     const time = +config.cache.time
+
+    debug('INFO', 'caching policy', time)
     if (time !== 0) return
 
     const { headers, data } = dataToBeStored
 
     if (time > 0) {
-
+      debug('INFO', 'must cache with  ', time, 'seconds', target)
       const expiresAt = new Date();
       expiresAt.setSeconds(expiresAt.getSeconds() + time);
       data.expiresAt = expiresAt;
@@ -70,7 +72,7 @@ export class Controller {
       await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers, 'EX', expiresAt)
       return
     }
-
+    debug('INFO', 'must cache and it will never expire ', target)
     await this.cacheSystem.set(target + postfixForCachedData.DATA, data)
     await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers)
 
@@ -93,7 +95,7 @@ export class Controller {
     try {
       debug("INFO", req.method.toUpperCase(), "requesting for :", target);
       await puppeterRequest.goto(req, target)
-      this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
+      await this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
     }
     catch (e) {
       console.log(e)
