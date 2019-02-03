@@ -27,7 +27,8 @@ export class Controller {
 
   constructor(puppeteerConnection) {
     this.puppeteerConnection = puppeteerConnection
-    this.cacheSystem = Factory.get(config.cache.type)(config.cache.config)
+    this.cacheSystem = Factory.get(config.cache.type, config.cache.config)
+    console.log(this.cacheSystem)
   }
 
   send(res, headers, data) {
@@ -75,7 +76,7 @@ export class Controller {
     await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers)
 
   }
-  
+
   async initCacheResponse(target) {
     this.response_cache = {
       data: await cacheSystem.get(target + postfixForCachedData.DATA),
@@ -87,7 +88,7 @@ export class Controller {
     return !!this.response_cache.data
   }
 
-  sendNotCachedData(target, req, res, next) {
+  async sendNotCachedData(target, req, res, next) {
     debug('INFO', 'cache for target: ', target, 'NOT FOUND')
     const puppeterRequest = new PuppeteerRequest(this.puppeteerConnection)
     try {

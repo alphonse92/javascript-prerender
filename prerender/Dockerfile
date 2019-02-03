@@ -1,6 +1,6 @@
 FROM gcr.io/google_appengine/nodejs
 
-RUN /usr/local/bin/install_node 6.11.0
+RUN /usr/local/bin/install_node 8.15.0
 
 WORKDIR /usr/src/app
 
@@ -13,12 +13,12 @@ RUN npm install nodemon -g
 
 RUN npm install --unsafe-perm || \
   ((if [ -f npm-debug.log ]; then \
-      cat npm-debug.log; \
-    fi) && false)
+  cat npm-debug.log; \
+  fi) && false)
 
 COPY ./ ./
 
-RUN mkdir ./tmp/prerender/
+RUN mkdir -p ./tmp/prerender/
 
 EXPOSE 3000
 

@@ -48,7 +48,7 @@ const base_conf = {
 		type: 'REDIS',
 		config: {
 			port: 6379,
-			url: 'redis://cache'
+			url: 'redis'
 		}
 	}
 }

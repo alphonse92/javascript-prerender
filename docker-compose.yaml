@@ -12,8 +12,10 @@ services:
   prerender:
     depends_on:
       - chromium
+      - redis
     links:
       - chromium
+      - redis
     build: prerender
     command: npm run-script dev
     volumes:
