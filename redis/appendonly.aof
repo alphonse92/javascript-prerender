@@ -1,0 +1,450 @@
+*2
+$6
+SELECT
+$1
+0
+*3
+$3
+set
+$32
+https://pallco.com.mx___DATA____
+$43764
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Pallco</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="icon" type="image/x-icon" href="favicon.png?v2"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"><style>#init-cubic-app{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #fff;
+      text-align: center;
+    }
+    #init-cubic-app figure{
+      display: inline-block;
+      top: 50%;
+      margin-top: -34px;
+      position: relative;
+      text-align: center;
+    }
+    #init-cubic-app figure img{
+      display: block;
+      margin: 10px auto;
+      top: 50%;
+      width: 95px;
+      height: 27px;
+      position: relative;
+    }
+    #init-cubic-app figure span{
+      display: block;
+      font-family: sans-serif!important;
+      font-size: 18px!important;
+      font-weight: 300!important;
+    }</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"><script id="chatlio-widget-embed" src="https://w.chatlio.com/w.chatlio-widget.js" defer="" data-embed-version="2.3" data-widget-options="{&quot;embedSidebar&quot;: true}" data-widget-id="3467a6ad-0ff8-48b1-4809-c2c1bf928d5d"></script><script src="https://connect.facebook.net/signals/config/2039418709442739?v=2.8.39&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5QSVC49"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+    ga('create', 'UA-115569665-1', 'auto');</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5QSVC49');</script><!-- End Google Tag Manager --><link href="styles.c232dafc513494370e94.bundle.css" rel="stylesheet"><script async="" src="https://static.hotjar.com/c/hotjar-1063348.js?sv=6"></script><script type="text/javascript" src="https://w.chatlio.com/v5/w.chatlio-widget.js?loader-version=aed2c1a-1530566248761" data-loader-version="aed2c1a-1530566248761" async="" id="chatlio-widget-embed" data-embed-version="2.3" data-widget-options="{&quot;embedSidebar&quot;: true}" data-widget-id="3467a6ad-0ff8-48b1-4809-c2c1bf928d5d"></script><script async="" src="https://script.hotjar.com/modules-b712234a8d026cca77a2e3caece3a177.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><script type="text/javascript" src="https://w.chatlio.com/v5/vendor/chatlio.min.7ab10269.js"></script><link type="text/css" rel="stylesheet" href="https://w.chatlio.com/v5/main.cba5152e.css"><script type="text/javascript" src="https://w.chatlio.com/v5/vendor/emojione-1.4.1.min.2f0e13b4.js"></script><style>h1.title[_ngcontent-c0]{color:#2a2a2d;font-size:40px;font-weight:700;line-height:45px;text-align:center;margin-bottom:82px}.video[_ngcontent-c0]{cursor:pointer}h2[_ngcontent-c0]{color:#fff;font-size:40px}h2.title[_ngcontent-c0]{font-size:36px;font-weight:700;line-height:44px;margin:0}.black-text[_ngcontent-c0]{color:#2a2a2d}.left-align[_ngcontent-c0]{text-align:left}h3[_ngcontent-c0]{max-width:85%}h3.title[_ngcontent-c0]{font-size:32px;font-weight:700;line-height:35px}h4[_ngcontent-c0]{font-size:26px}h5[_ngcontent-c0]{font-size:20px;margin:10px 0;color:#2a2b2d}p[_ngcontent-c0]{color:#4a4a4a;font-size:16px;font-weight:400;line-height:22px;width:327px}.right-text[_ngcontent-c0]{float:right}ul[_ngcontent-c0]{width:65%;margin:0 auto;list-style:none}ul[_ngcontent-c0]   li[_ngcontent-c0]{font-size:inherit;color:#35343d;font-weight:400;padding:.3em 0 .5em 2em;position:relative;list-style:none;margin:1.5em 0}ul[_ngcontent-c0]   li[_ngcontent-c0]   p[_ngcontent-c0]{padding-left:60px;font-size:1.15em}ul[_ngcontent-c0]   li[_ngcontent-c0]   i[_ngcontent-c0]{color:#00ca9d;top:15px;position:absolute;left:0;font-size:45px}.header[_ngcontent-c0]{height:553px;padding:116px 0;position:relative}.background-black-white[_ngcontent-c0]{background:#f8f8f8;border-left:1px solid #979797;border-right:1px solid #979797}.background-black-white[_ngcontent-c0]   .__video[_ngcontent-c0]   iframe[_ngcontent-c0]{width:100%;height:255px}.center-aligner[_ngcontent-c0]{max-width:1020px;margin:auto}.center-aligner[_ngcontent-c0]   p[_ngcontent-c0]{margin:10px auto;max-width:25%;color:#fff;font-family:lato}.center-aligner[_ngcontent-c0]   a[_ngcontent-c0]{margin-top:2em;font-family:lato}.cubic-main-features[_ngcontent-c0]{padding:3em 0;max-height:334px}.cubic-main-features[_ngcontent-c0]   figure[_ngcontent-c0]{padding:2em 0}.cubic-main-features[_ngcontent-c0]   figure[_ngcontent-c0]   img[_ngcontent-c0]{max-width:100%;height:auto}.description-large[_ngcontent-c0]{margin:6em 0;min-height:600px}.flex-center[_ngcontent-c0]{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.text[_ngcontent-c0]{padding:0 20px}.section-title[_ngcontent-c0]{color:#fff;font-size:40px;font-weight:700;line-height:49px;font-family:Lato;line-height:normal;max-width:100%;margin:0 auto;padding:1em 0;text-align:center}.section-title.max-599[_ngcontent-c0]{max-width:599px}.text-black[_ngcontent-c0]{color:#000}.text-right[_ngcontent-c0]{text-align:right!important}.text-center[_ngcontent-c0]{text-align:center}.link[_ngcontent-c0]{text-decoration:none;color:#35343d;font-size:16px;font-weight:700}.background-black[_ngcontent-c0]{background-color:#2a2a2d}.background-white[_ngcontent-c0]{background-color:#fff}.home-section[_ngcontent-c0]{padding:1em}.home-section[_ngcontent-c0]   .__home-section-inner[_ngcontent-c0]{max-width:1020px;margin:auto}.section-one[_ngcontent-c0]{top:-6em}.section-one[_ngcontent-c0]   .section-one-inner[_ngcontent-c0]{border-radius:4px;-webkit-box-shadow:8px 8px 10px 0 rgba(0,0,0,.2);box-shadow:8px 8px 10px 0 rgba(0,0,0,.2);border:1px solid #e6e6e6}.rows[_ngcontent-c0]{margin:0 auto;border-bottom:.5px solid #dfdfe2;padding:0 5%}.border[_ngcontent-c0]{position:relative}.border[_ngcontent-c0]:before{content:"";display:block;width:100%;height:2px;background:#ff4158;position:absolute;left:0;bottom:-6px;-webkit-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-name:border;animation-name:border}.big-icons[_ngcontent-c0]{font-size:50px;color:#00ca9d}.card[_ngcontent-c0]{-webkit-box-shadow:8px 8px 26px 0 rgba(0,0,0,.08);box-shadow:8px 8px 26px 0 rgba(0,0,0,.08);background:#fff;padding:1em;margin-bottom:1em;border-radius:4px}.box-image[_ngcontent-c0]{width:auto;max-height:138.55px;margin-bottom:2em}.text-box[_ngcontent-c0]{text-align:center;color:#35343d;padding:0 .5em;width:100%;line-height:19px}.two-color[_ngcontent-c0]{background:-webkit-gradient(linear,left top,left bottom,from(#2a2b2d),color-stop(65%,#2a2b2d),color-stop(50%,#fff),to(#fff));background:linear-gradient(to bottom,#2a2b2d 0,#2a2b2d 65%,#fff 50%,#fff 100%)}.map__description[_ngcontent-c0]   .__description[_ngcontent-c0]{margin-bottom:5em}.map__description[_ngcontent-c0]   .__description[_ngcontent-c0]   p[_ngcontent-c0]{color:#272626;font-size:16px;line-height:22px}.icon-link[_ngcontent-c0]{top:2px;left:5px;position:relative;font-size:14px;border:1px solid #45454d;border-radius:50%}.top-50[_ngcontent-c0]{margin-top:50px}article.box[_ngcontent-c0]{min-height:347.55px}.last-div[_ngcontent-c0]{background:url(Group4.6d9b9a5ba54d1aad0247.svg) center/cover no-repeat;min-height:306.82px;margin-bottom:0}.maping[_ngcontent-c0]{position:absolute;left:0;top:0;z-index:1;padding:0;margin:0}.maping_description[_ngcontent-c0]{z-index:2;position:relative}.full-text[_ngcontent-c0]{width:100%}@-webkit-keyframes border{from{width:0%}to{width:100%}}@keyframes border{from{width:0%}to{width:100%}}@media screen and (max-width:1486px){p[_ngcontent-c0]{width:100%}.last-div[_ngcontent-c0]{min-height:239.82px;margin-bottom:0}}@media screen and (max-width:700px){.left-align[_ngcontent-c0]{text-align:center;max-width:100%;margin-right:0}p[_ngcontent-c0]{width:100%;text-align:center}.right-text[_ngcontent-c0]{text-align:center;max-width:100%;float:inherit}h3[_ngcontent-c0]{max-width:100%}.last-div[_ngcontent-c0]{min-height:111.82px;margin-bottom:0p}}@media screen and (max-width:960px){h1[_ngcontent-c0]{max-width:90%;font-size:24px;line-height:24px}.header[_ngcontent-c0]   p[_ngcontent-c0]{max-width:50%}.header[_ngcontent-c0]   a[_ngcontent-c0]{margin-top:1em}ul[_ngcontent-c0]{text-align:center}ul[_ngcontent-c0]   li[_ngcontent-c0]{text-align:center;margin-left:-40px}ul[_ngcontent-c0]   li[_ngcontent-c0]   i[_ngcontent-c0]{position:relative;margin-left:-40px}ul[_ngcontent-c0]   li[_ngcontent-c0]   p[_ngcontent-c0]{display:block;margin-left:-100px}.header[_ngcontent-c0]{height:553px;padding-left:1em;padding-right:1em}.section-title[_ngcontent-c0]{font-size:2em}.number[_ngcontent-c0]{font-size:1.5em}.description-large[_ngcontent-c0]{margin:3em 0}.cubic-main-features[_ngcontent-c0]{max-height:2000px}article.box[_ngcontent-c0]{min-height:390px}.last-div[_ngcontent-c0]{min-height:148.82px;margin-bottom:0}}@media screen and (max-width:460px){.header[_ngcontent-c0]{height:553px;padding-top:.5em;padding-left:1em;padding-right:1em}.header[_ngcontent-c0]   p[_ngcontent-c0]{max-width:70%;padding-left:0}.header[_ngcontent-c0]   a[_ngcontent-c0]{margin-top:1em}.cubic-main-features[_ngcontent-c0]{max-height:2000px}}</style><style>i[_ngcontent-c1]{font-size:20px;color:#00ca9d;margin-left:7px}span[_ngcontent-c1]{line-height:20px}.link[_ngcontent-c1]{cursor:pointer}.inline[_ngcontent-c1]{display:inline-block;vertical-align:top}nav.navbar[_ngcontent-c1]{background-color:#fff;z-index:100;-webkit-box-shadow:none;box-shadow:none;height:60px;padding:0 .5em;-webkit-transition:.3s;transition:.3s}nav.navbar[_ngcontent-c1]   a.link[_ngcontent-c1]{font-size:15px;color:#000;font-family:lato}nav.navbar[_ngcontent-c1]   .navbar-link[_ngcontent-c1]:not(.no-link):hover, nav.navbar[_ngcontent-c1]   a[_ngcontent-c1]:not(.no-link):hover{background-color:initial}nav.navbar[_ngcontent-c1]   .navbar-menu-mobile[_ngcontent-c1]{height:70px;position:relative}nav.navbar[_ngcontent-c1]   .navbar-menu-mobile[_ngcontent-c1]   .top-menu[_ngcontent-c1]   .material-icons[_ngcontent-c1]{color:#35343d;font-size:26px;padding:22px 1em;position:absolute;right:0}nav.navbar[_ngcontent-c1]   .navbar-menu-mobile[_ngcontent-c1]   .top-menu[_ngcontent-c1]   .navbar-brand[_ngcontent-c1]{padding:0 1em;width:140px;left:0;position:absolute;height:70px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}nav.navbar[_ngcontent-c1]   .navbar-menu-mobile[_ngcontent-c1]   .top-menu[_ngcontent-c1]   .navbar-brand[_ngcontent-c1]   img[_ngcontent-c1]{width:100%}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]{height:60px;padding:.5em 0}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .navbar-brand[_ngcontent-c1]{padding:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 10px}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .navbar-brand[_ngcontent-c1]   img[_ngcontent-c1]{width:100%}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .lay-70.gs[_ngcontent-c1]{-webkit-box-align:center;-ms-flex-align:center;align-items:center}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .lay-70.gs[_ngcontent-c1]   a[_ngcontent-c1]{color:#35343d;-webkit-transition:color .3s;transition:color .3s}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .lay-70.gs[_ngcontent-c1]   a[_ngcontent-c1]:hover{color:#00ca9d}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .lay-70.gs[_ngcontent-c1]   .btn.btn-primary[_ngcontent-c1]{width:auto;line-height:1;height:auto;padding:.7em 1em;border:1px solid #00ca9d;background:0 0;color:#35343d}nav.navbar[_ngcontent-c1]   .navbar-menu[_ngcontent-c1]   .lay-70.gs[_ngcontent-c1]   .btn.btn-primary[_ngcontent-c1]:hover{background:#e6e5e5}.open[_ngcontent-c1]{-webkit-animation:.6s transition;animation:.6s transition;display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}.open[_ngcontent-c1]   .btn.btn-primary[_ngcontent-c1]{width:auto;line-height:1;height:auto;font-size:15px;padding:1em 2em;border:1px solid #00ca9d;background:0 0;color:#35343d}.open[_ngcontent-c1]   .btn.btn-primary[_ngcontent-c1]:hover{background:#e6e5e5!important}.__border-botton[_ngcontent-c1]{border:1px solid #00ca9d}.menu-mobile[_ngcontent-c1]{display:none;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;position:absolute;top:0;height:100vh;width:100%;padding:20px 30px;background-color:#fff;color:#35343d}.menu-mobile[_ngcontent-c1]   a[_ngcontent-c1]{text-align:center;font-size:1.4em;font-weight:700;padding:15px}.menu-mobile[_ngcontent-c1]   .menu-logo[_ngcontent-c1]{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:left;-ms-flex-align:left;align-items:left}.menu-mobile[_ngcontent-c1]   .menu-logo[_ngcontent-c1]   .logo[_ngcontent-c1]{height:38px}.menu-mobile[_ngcontent-c1]   .btn-primary[_ngcontent-c1]{height:auto;font-size:12px}.menu-mobile[_ngcontent-c1]   .btn-primary[_ngcontent-c1]:hover{background-color:#ff4158!important}@-webkit-keyframes transition{from{top:200vh}to{top:0}}@keyframes transition{from{top:200vh}to{top:0}}app-modal-login[_ngcontent-c1]{position:fixed;z-index:999}app-modal-login[_ngcontent-c1]   app-modal[_ngcontent-c1]   .modal-background.active[_ngcontent-c1]{position:fixed!important}.fadeInDown[_ngcontent-c1], .fixed[_ngcontent-c1]{position:fixed;width:100%;top:0}.fadeInDown[_ngcontent-c1], .fixed[_ngcontent-c1], .menu-state-2[_ngcontent-c1], .menu-state-false[_ngcontent-c1]{border-bottom:.5px solid #dfdfdf}.logo-adjust[_ngcontent-c1]{width:120px;height:45px}.fadeInDown[_ngcontent-c1]   .logo-adjust[_ngcontent-c1], .fixed[_ngcontent-c1]   .logo-adjust[_ngcontent-c1], .menu-state-2[_ngcontent-c1]   .logo-adjust[_ngcontent-c1], .menu-state-3[_ngcontent-c1]   .logo-adjust[_ngcontent-c1], .menu-state-false[_ngcontent-c1]   .logo-adjust[_ngcontent-c1]{width:80px}@media screen and (max-width:700px){nav.navbar[_ngcontent-c1]{padding:0}}</style><style>.accordion[_ngcontent-c2]{border-radius:4px;-webkit-box-shadow:8px 8px 26px 0 rgba(0,0,0,.08);box-shadow:8px 8px 26px 0 rgba(0,0,0,.08)}.accordion-reset[_ngcontent-c2]{background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;border-bottom:.5px solid #ececec;color:#35343d;font-size:1.2em;margin:0!important;font-family:lato!important}.accordion-reset[_ngcontent-c2]:first-child{border-radius:4px 4px 0 0}.accordion-reset[_ngcontent-c2]:last-child{border-radius:0 0 4px 4px}.accordion-reset[_ngcontent-c2]   .mat-expanded[_ngcontent-c2]{font-weight:700}.mat-expansion-panel-header[_ngcontent-c2]{font-size:16px;padding:35px 60px!important;font-family:lato}.body-panel[_ngcontent-c2]{font-family:lato!important;font-size:16px;padding:10px 30px}@media screen and (max-width:460px){.mat-expansion-panel-header[_ngcontent-c2]{padding:35px 10px!important}.body-panel[_ngcontent-c2]{padding:10px 0}}</style><style>footer[_ngcontent-c3]{background-color:#2a2a2d;width:100%;height:224px;color:#fff;padding:0 90px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap}footer[_ngcontent-c3]   figure[_ngcontent-c3]{margin:20px 0}footer[_ngcontent-c3]   img[_ngcontent-c3]{width:170px}footer[_ngcontent-c3]   p[_ngcontent-c3]{color:#fff}footer[_ngcontent-c3]   .copyright-area[_ngcontent-c3]{text-align:center}footer[_ngcontent-c3]   .copyright-area[_ngcontent-c3]   p[_ngcontent-c3]{padding:0;margin:0;color:#fff;font-family:Lato;font-size:16px;font-weight:400;line-height:19px}footer[_ngcontent-c3]   .copyright-area[_ngcontent-c3]   p[_ngcontent-c3]   small[_ngcontent-c3]{color:#525252;font-size:12px}footer[_ngcontent-c3]   ul[_ngcontent-c3]{padding:0}footer[_ngcontent-c3]   ul[_ngcontent-c3]   li[_ngcontent-c3]{list-style:none;padding:0;font-size:16px;line-height:24px}footer[_ngcontent-c3]   ul[_ngcontent-c3]   li[_ngcontent-c3]   a[_ngcontent-c3]{color:#fff;text-decoration:none;font-family:lato;font-size:16px;font-weight:400;line-height:22px}@media screen and (max-width:960px){footer[_ngcontent-c3]{height:auto;padding:20px;text-align:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}[_ngcontent-c3]:first-child{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}[_ngcontent-c3]:nth-child(2){-webkit-box-ordinal-group:4;-ms-flex-order:3;order:3}[_ngcontent-c3]:nth-child(3){-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}figure[_ngcontent-c3]{width:100%;text-align:center}p[_ngcontent-c3]{text-align:center;width:100%}ul[_ngcontent-c3]{width:100%}ul[_ngcontent-c3]   li[_ngcontent-c3]{line-height:16px}}</style><style>.chat-button[_ngcontent-c4]{position:fixed;font-size:14;padding:11px 20px;bottom:-100px;right:10px;background:#ff4158;color:#fff;font-family:lato;cursor:pointer;border-radius:100px 100px 0;-webkit-transition:.7s;transition:.7s}.chat-button[_ngcontent-c4]:before{content:"";position:absolute;border-radius:50%;left:-7px;width:15px;height:15px;border:0}.chat-button.__is-online[_ngcontent-c4]:before{background:#6dc476}.chat-button.__is-loaded[_ngcontent-c4]{bottom:10px}</style><style>.mat-expansion-panel{transition:box-shadow 280ms cubic-bezier(.4,0,.2,1);box-sizing:content-box;display:block;margin:0;transition:margin 225ms cubic-bezier(.4,0,.2,1)}.mat-expansion-panel:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-expansion-panel-content{overflow:hidden}.mat-expansion-panel-content.mat-expanded{overflow:visible}.mat-expansion-panel-body{padding:0 24px 16px}.mat-expansion-panel-spacing{margin:16px 0}.mat-accordion .mat-expansion-panel-spacing:first-child{margin-top:0}.mat-accordion .mat-expansion-panel-spacing:last-child{margin-bottom:0}.mat-action-row{border-top-style:solid;border-top-width:1px;display:flex;flex-direction:row;justify-content:flex-end;padding:16px 8px 16px 24px}.mat-action-row button.mat-button{margin-left:8px}[dir=rtl] .mat-action-row button.mat-button{margin-left:0;margin-right:8px}</style><style>.mat-expansion-panel-header{display:flex;flex-direction:row;align-items:center;padding:0 24px}.mat-expansion-panel-header:focus,.mat-expansion-panel-header:hover{outline:0}.mat-expansion-panel-header.mat-expanded:focus,.mat-expansion-panel-header.mat-expanded:hover{background:inherit}.mat-expansion-panel-header:not([aria-disabled=true]){cursor:pointer}.mat-content{display:flex;flex:1;flex-direction:row;overflow:hidden}.mat-expansion-panel-header-description,.mat-expansion-panel-header-title{display:flex;flex-grow:1;margin-right:16px}[dir=rtl] .mat-expansion-panel-header-description,[dir=rtl] .mat-expansion-panel-header-title{margin-right:0;margin-left:16px}.mat-expansion-panel-header-description{flex-grow:2}.mat-expansion-indicator::after{border-style:solid;border-width:0 2px 2px 0;content:'';display:inline-block;padding:3px;transform:rotate(45deg);vertical-align:middle}</style></head><body><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QSVC49" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) --><app-root ng-version="5.2.11"><router-outlet></router-outlet><app-home _nghost-c0="" class="ng-star-inserted"><app-main-header _ngcontent-c0="" _nghost-c1=""><nav _ngcontent-c1="" hagrid-component="navbar" class="navbar animated navbar-mobile-in-sm navbar-mobile-in-md navbar-mobile-in-xs menu-state-1">
+
+  <div _ngcontent-c1="" class="navbar-menu gs lay-100">
+    <div _ngcontent-c1="" class="gs layout-65 justify-content-flex-start">
+      <a _ngcontent-c1="" class="navbar-brand logo-adjust" href="/">
+        <img _ngcontent-c1="" src="assets/cubic-logo.svg">
+      </a>
+      <a _ngcontent-c1="" class="link" href="/bodegas-en-renta">Nuestras Bodegas</a>
+      
+      <a _ngcontent-c1="" class="link" href="/publicar-bodega">Publica Tu Bodega</a>
+      <a _ngcontent-c1="" class="link" href="/preguntas-frecuentes">Preguntas</a>
+      <a _ngcontent-c1="" class="link" href="/sobre-nosotros">Sobre Nosotros</a>
+      <a _ngcontent-c1="" class="link" href="/contactar">Contacto</a>
+    </div>
+    <div _ngcontent-c1="" class="lay-35 gs justify-content-flex-end flex">
+      <!----><a _ngcontent-c1="" class="link ng-star-inserted">Inicio</a>
+      
+      <!----><a _ngcontent-c1="" class="link ng-star-inserted" href="/solicitud-de-bodega?step=1"><span _ngcontent-c1="">Solicita Tu Bodega</span></a>
+      <!---->
+      <!---->
+      <!---->
+    </div>
+
+  </div>
+
+  <div _ngcontent-c1="" class="navbar-menu-mobile">
+    <div _ngcontent-c1="" class="top-menu">
+      <a _ngcontent-c1="" class="material-icons" hagrid-role="toggle">menu</a>
+      <a _ngcontent-c1="" class="navbar-brand" href="/">
+        <img _ngcontent-c1="" class="logo" src="assets/cubic-logo.svg">
+      </a>
+    </div>
+    <nav _ngcontent-c1="" class="menu-mobile">
+      <div _ngcontent-c1="" class="menu-logo">
+        <a _ngcontent-c1="" class="material-icons" hagrid-role="toggle">close</a>
+        <a _ngcontent-c1="" href="/">
+          <img _ngcontent-c1="" class="logo" src="assets/cubic-logo.svg">
+        </a>
+      </div>
+
+      <div _ngcontent-c1="">
+        <a _ngcontent-c1="" href="/bodegas-en-renta">Nuestras bodegas</a>
+        <a _ngcontent-c1="" href="/publicar-bodega">Publica tu bodega</a>
+        <a _ngcontent-c1="" href="/preguntas-frecuentes">Preguntas</a>
+        <a _ngcontent-c1="" href="/sobre-nosotros">Sobre Nosotros</a>
+        
+        <a _ngcontent-c1="" href="/contactar">Contacto</a>
+        <!----><a _ngcontent-c1="" class="ng-star-inserted">Iniciar Sesión</a>
+      </div>
+
+      
+      
+      <!---->
+      
+      <!---->
+
+    </nav>
+  </div>
+
+</nav>
+</app-main-header>
+
+<header _ngcontent-c0="" class="header background-black-white">
+  <div _ngcontent-c0="" class="center-aligner">
+    <div _ngcontent-c0="" class="lay-lg-50 ly-md-50 lay-sm-100 lay-xs-100">
+      <h2 _ngcontent-c0="" class="title black-text left-align">
+        Bodegas en renta. <br _ngcontent-c0="">
+        Obtén almacenaje flexible sin <br _ngcontent-c0="">
+        compromisos a largo plazo.
+      </h2>
+      <a _ngcontent-c0="" class="btn btn-primary" href="/solicitud-de-bodega?step=1">Solicita tu bodega</a>
+    </div>
+    <div _ngcontent-c0="" class="lay-lg-45 ly-md-45 lay-sm-100 lay-xs-100 __video">
+      <img _ngcontent-c0="" class="video" src="assets/homepage/video-preview.png">
+    </div>
+  </div>
+</header>
+
+<section _ngcontent-c0="" class="home-section background-black">
+  <div _ngcontent-c0="" class="__home-section-inner section-one justify-content-center align-items-center">
+    <div _ngcontent-c0="" class="background-white flex-center section-one-inner">
+
+      <div _ngcontent-c0="" class="lay-80 lay-md-80 lay-lg-80  lay-sm-100 lay-xs-100 rows">
+        <div _ngcontent-c0="" class="cubic-main-features gs gs-block-sm">
+          <article _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100">
+            <h3 _ngcontent-c0="" class="title black-text left-align">Bodegas verificadas</h3>
+            <p _ngcontent-c0="" class="content">Cada una de las bodegas de nuestra red es aprobada y verificada por nosotros. Aseguramos las características y calidad de los servicios y que todas ellas ofrezcan seguro de responsabilidad civil y de mercancía.</p>
+          </article>
+          <figure _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 align-center">
+            <img _ngcontent-c0="" alt="" class="container" src="assets/homepage/Pallco20.png">
+          </figure>
+        </div>
+      </div>
+
+      <div _ngcontent-c0="" class="lay-80 lay-md-80 lay-lg-80 lay-sm-100 lay-xs-100 rows">
+        <div _ngcontent-c0="" class="cubic-main-features gs gs-block-sm">
+          <figure _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 align-center order-xs-2 order-sm-2">
+            <img _ngcontent-c0="" alt="" src="assets/homepage/Pallco3.png" width="225">
+          </figure>
+          <article _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 order-xs-1 order-sm-1">
+            <h3 _ngcontent-c0="" class="title black-text left-align full-text">Sin mínimos requeridos</h3>
+            <p _ngcontent-c0="" class="left-align">Olvídate de cumplir con un mínimo de tarimas mensuales.</p>
+          </article>
+        </div>
+      </div>
+
+      <div _ngcontent-c0="" class="lay-80 lay-md-80 lay-lg-80 lay-sm-100 lay-xs-100 rows">
+        <div _ngcontent-c0="" class="cubic-main-features gs gs-block-sm">
+          <article _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100">
+            <h3 _ngcontent-c0="" class="title black-text left-align">No más contratos a largo plazo</h3>
+            <p _ngcontent-c0="">Paga sólo por el tiempo y el espacio que utilices.</p>
+          </article>
+          <figure _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 align-center">
+            <img _ngcontent-c0="" alt="" class="top-2em" src="assets/homepage/Pallco2.png" width="222">
+          </figure>
+        </div>
+      </div>
+
+      <div _ngcontent-c0="" class="lay-80 lay-md-80 lay-lg-80 lay-sm-100 lay-xs-100 rows">
+        <div _ngcontent-c0="" class="cubic-main-features gs gs-block-sm">
+          <figure _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 align-center order-xs-2 order-sm-2">
+            <img _ngcontent-c0="" alt="" src="assets/homepage/Pallco15.png" width="300">
+          </figure>
+          <article _ngcontent-c0="" class="lay-50 lay-sm-100 lay-xs-100 order-xs-1 order-sm-1">
+            <h3 _ngcontent-c0="" class="title black-text">Precios transparentes y consistentes</h3>
+            <p _ngcontent-c0="">Tarifas fáciles de entender por tarima o por metro cuadrado.</p>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section _ngcontent-c0="" class="home-section two-color">
+  <div _ngcontent-c0="" class="__home-section-inner justify-content-center align-items-center">
+    <div _ngcontent-c0="" class="">
+      <article _ngcontent-c0="">
+        <h2 _ngcontent-c0="" class="section-title max-599">¿Cómo acceder a nuestras ofertas de almacenamiento flexible?</h2>
+        <div _ngcontent-c0="" class="gs gs-block-sm justify-content-space-between align-center top-50">
+          <div _ngcontent-c0="" class="lay-30">
+            <article _ngcontent-c0="" class="box card">
+              <img _ngcontent-c0="" class="box-image" src="assets/homepage/Pallco6.png">
+              <h5 _ngcontent-c0="">Regístrate</h5>
+              <p _ngcontent-c0="" class="text-box">Llena el formulario e indica tus necesidades de almacenamiento</p>
+            </article>
+          </div>
+          <div _ngcontent-c0="" class="lay-30">
+            <article _ngcontent-c0="" class="box card">
+              <img _ngcontent-c0="" class="box-image" src="assets/homepage/Pallco17.png">
+              <h5 _ngcontent-c0="">Nos contactamos contigo</h5>
+              <p _ngcontent-c0="" class="text-box">Uno de nuestros colaboradores te llamará en menos de 24 horas y encontrará la bodega ideal para ti</p>
+            </article>
+          </div>
+          <div _ngcontent-c0="" class="lay-30">
+           <article _ngcontent-c0="" class="box card">
+            <img _ngcontent-c0="" class="box-image" src="assets/homepage/Pallco9.png">
+              <h5 _ngcontent-c0="">Escoge tu bodega</h5>
+              <p _ngcontent-c0="" class="text-box">Recibe distintas opciones de almacenaje, escoge tu bodega y ya puedes mandar tu mercancia desde tu panel en línea</p>
+            </article>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section _ngcontent-c0="" class="home-section description-large">
+
+  <figure _ngcontent-c0="" class="maping">
+    <img _ngcontent-c0="" alt="" class="map" src="assets/homepage/mexico.svg">
+  </figure>
+
+  <div _ngcontent-c0="" class="maping_description __home-section-inner justify-content-center align-items-center">
+
+    <div _ngcontent-c0="" class="gs gs-block-sm map__description">
+      <article _ngcontent-c0="" class="lay-70">
+      </article>
+      <article _ngcontent-c0="" class="lay-30 order-sm-1 __description">
+        <h2 _ngcontent-c0="" class="title black-text left-align">Mantente cerca de tus clientes</h2>
+        <p _ngcontent-c0="">Coloca tu mercancía cerca de ellos y realiza entregas más rápidas.
+          Controla tu inventario desde tu perfil sin integracion requerida.
+        </p>
+        <a _ngcontent-c0="" class="link" href="/bodegas-en-renta">Red de Pallco <i _ngcontent-c0="" class="material-icons icon-link">arrow_forward</i></a>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<div _ngcontent-c0="" class="gs-wrap">
+  <div _ngcontent-c0="" class="sign-wrapper gs justify-content-center align-items-center">
+    <div _ngcontent-c0="" class="lay-100 lay-md-70 lay-lg-60">
+      <section _ngcontent-c0="" class="description">
+        <h1 _ngcontent-c0="" class="title black-text">Preguntas frecuentes</h1>
+        <app-warehouses-faq-accordion _ngcontent-c0="" _nghost-c2=""><div _ngcontent-c2="" class="accordion">
+  <mat-accordion _ngcontent-c2="" class="mat-accordion">
+    <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-0"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-1 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-0" tabindex="0" aria-controls="cdk-accordion-child-0" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Cómo funciona Pallco?</span><!----><span class="mat-expansion-indicator ng-tns-c6-1 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-0" id="cdk-accordion-child-0" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+      
+      <div _ngcontent-c2="" class="body-panel">
+        Pallco es una plataforma que funciona como un intermediario entre un arrendatario y una
+        bodega. Nuestra plataforma es capaz de empatar el espacio disponible de las bodegas en
+        épocas bajas y almacenar el sobre stock de los arrendatarios en épocas altas, lo que se conoce como <i _ngcontent-c2="">overflow/ buffer.</i>
+      </div>
+    <!----></div></div></mat-expansion-panel>
+
+      <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-2"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-3 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-1" tabindex="0" aria-controls="cdk-accordion-child-1" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Por qué me conviene como bodega utilizar Pallco?</span><!----><span class="mat-expansion-indicator ng-tns-c6-3 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-1" id="cdk-accordion-child-1" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+        
+        <div _ngcontent-c2="" class="body-panel">
+          <p _ngcontent-c2="">1. Incrementa tus utilidades al rentabilizar tus espacios disponibles. 
+              Amplía el alcance de tu equipo de ventas  Nuestra plataforma te permite 
+              aprovechar oportunidades de negocio previamente fuera de tu alcance
+          </p>
+
+          <p _ngcontent-c2="">2. Reduce tus procesos burocráticos.  En Pallco, nosotros negociamos por ti,
+              y puedes aceptar muchos clientes pequeños como si fueran uno grande.
+          </p>
+
+          <p _ngcontent-c2="">3. Reduce el riesgo de impagos o morosidad al recibir únicamente clientes
+          verificados.
+          </p>
+
+          <p _ngcontent-c2="">4. Gestiona tus clientes en línea. Mantén el control desde tu perfil 
+              sin integración requerida, además de actualizar tus ofertas de espacio disponible.
+          </p>
+        </div>
+      <!----></div></div></mat-expansion-panel>
+
+      <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-4"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-5 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-2" tabindex="0" aria-controls="cdk-accordion-child-2" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Cuándo recibo un pago de Pallco?</span><!----><span class="mat-expansion-indicator ng-tns-c6-5 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-2" id="cdk-accordion-child-2" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+        
+        <div _ngcontent-c2="" class="body-panel">
+          Teniendo en consideración el convenio establecido, una vez que la factura sea emitida, 
+          Pallco procederá a realizar el pago a la bodega.
+        </div>
+      <!----></div></div></mat-expansion-panel>
+
+      <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-6"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-7 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-3" tabindex="0" aria-controls="cdk-accordion-child-3" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Por qué debo de utilizar Pallco y no directamente reservar con la bodega?</span><!----><span class="mat-expansion-indicator ng-tns-c6-7 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-3" id="cdk-accordion-child-3" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+        
+        <div _ngcontent-c2="" class="body-panel">
+          <p _ngcontent-c2="">1. Encuentras bodegas verificadas y recibes la calidad que estás buscando.</p>
+          <p _ngcontent-c2="">2. Con Pallco, puedes pagar sólo por lo que utilizas sin obligación de mínimos o de contratos de largo plazo. </p>
+          <p _ngcontent-c2="">3. Ahorras pagar comisión a brókers y, a través de nuestra plataforma, evitas precios no transparentes o servicios inconsistentes.</p>
+          <p _ngcontent-c2="">4. Gestionas tu inventario a través de un panel online.</p>
+        </div>
+      <!----></div></div></mat-expansion-panel>
+
+      <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-8"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-9 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-4" tabindex="0" aria-controls="cdk-accordion-child-4" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Existe verificación para todas las bodegas ofrecidas por Pallco?</span><!----><span class="mat-expansion-indicator ng-tns-c6-9 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-4" id="cdk-accordion-child-4" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+          
+          <div _ngcontent-c2="" class="body-panel">
+            Si, todas nuestras bodegas son revisadas antes de poder subir sus espacios. 
+            Luego de una verificación de las instalaciones y revisión de cumplimiento de 
+            requisitos, el administrador de Pallco procede a ponerle el sello de verificación 
+            y de esta forma subir el espacio a nuestra red de bodegas.
+          </div>
+      <!----></div></div></mat-expansion-panel>
+
+      <mat-expansion-panel _ngcontent-c2="" class="accordion-reset mat-expansion-panel ng-tns-c5-10"><mat-expansion-panel-header _ngcontent-c2="" class="mat-expansion-panel-header ng-tns-c6-11 ng-trigger ng-trigger-expansionHeight ng-star-inserted" role="button" id="mat-expansion-panel-header-5" tabindex="0" aria-controls="cdk-accordion-child-5" aria-expanded="false" aria-disabled="false" style="height: 48px;"><span class="mat-content">¿Qué ocurre si mi mercancía no está asegurada?</span><!----><span class="mat-expansion-indicator ng-tns-c6-11 ng-trigger ng-trigger-indicatorRotate ng-star-inserted" style="transform: rotate(0deg);"></span></mat-expansion-panel-header><div class="mat-expansion-panel-content ng-trigger ng-trigger-bodyExpansion" role="region" aria-labelledby="mat-expansion-panel-header-5" id="cdk-accordion-child-5" style="height: 0px; visibility: hidden;"><div class="mat-expansion-panel-body">
+          
+          <div _ngcontent-c2="" class="body-panel">
+            Pallco siempre recomienda tener un seguro para tu mercancía. 
+            Por otra parte, nosotros tenemos la capacidad de brindarte 
+            una póliza de seguros a través de la bodega que garantiza 
+            la seguridad de tu mercancía. Además del seguro de responsabilidad civil.
+          </div>
+      <!----></div></div></mat-expansion-panel>
+
+  </mat-accordion>
+</div></app-warehouses-faq-accordion>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div _ngcontent-c0="" class="lay align-center description-large last-div">
+  <a _ngcontent-c0="" class="btn btn-primary" href="/solicitud-de-bodega?step=1">Solicita tu bodega</a>
+</div>
+
+<app-footer-common _ngcontent-c0="" _nghost-c3=""><footer _ngcontent-c3="" id="main-footer">
+  <figure _ngcontent-c3="" class="footer">
+  <img _ngcontent-c3="" class="logo" src="assets/cubic-logo-white.svg">
+  </figure>
+  <div _ngcontent-c3="" class="copyright-area">
+    <p _ngcontent-c3="" class="footer">Pallco Copyright 2018</p>
+    
+  </div>
+  <ul _ngcontent-c3="" class="footer">
+  	<li _ngcontent-c3=""><a _ngcontent-c3="" href="/solicitud-de-bodega">Encuentra una bodega</a></li>
+  	<li _ngcontent-c3=""><a _ngcontent-c3="" href="/publicar-bodega?step=1">Solicita un almacén</a></li>
+    <li _ngcontent-c3=""><a _ngcontent-c3="" href="/bodegas-en-renta">Nuestras bodegas</a></li>
+    <li _ngcontent-c3=""><a _ngcontent-c3="" href="/preguntas-frecuentes">Preguntas</a></li>
+    <li _ngcontent-c3=""><a _ngcontent-c3="" href="/contactar">Contacto</a></li>
+    
+  </ul>
+</footer>
+</app-footer-common>
+
+<app-chatlio-bubble _ngcontent-c0="" _nghost-c4=""><a _ngcontent-c4="" class="chat-button" data-chatlio-widget-button="" onclick="_chatlio.showOrHide();">Offline</a>
+</app-chatlio-bubble>
+</app-home></app-root><script type="text/javascript" src="inline.65fc50deb0d7331c3037.bundle.js"></script><script type="text/javascript" src="polyfills.3231ae26e12594282693.bundle.js"></script><script type="text/javascript" src="main.a4f006bb95d98fd77910.bundle.js"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2039418709442739");fbq("set","agent","tmgoogletagmanager","2039418709442739");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2039418709442739&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<script type="text/javascript" id="">(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)};a._hjSettings={hjid:1063348,hjsv:6};d=c.getElementsByTagName("head")[0];b=c.createElement("script");b.async=1;b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv;d.appendChild(b)})(window,document,"https://static.hotjar.com/c/hotjar-",".js?sv\x3d");</script><script type="text/javascript" id="">window._chatlio=window._chatlio||[];
+!function(){var a=document.getElementById("chatlio-widget-embed");if(a&&window.ChatlioReact&&_chatlio.init)return void _chatlio.init(a,ChatlioReact);a=function(a){return function(){_chatlio.push([a].concat(arguments))}};for(var b="configure identify track show hide isShown isOnline page open showOrHide".split(" "),c=0;c<b.length;c++)_chatlio[b[c]]||(_chatlio[b[c]]=a(b[c]));a=document.createElement("script");b=document.getElementsByTagName("script")[0];a.id="chatlio-widget-embed";a.src="https://w.chatlio.com/w.chatlio-widget.js";
+a.defer=!0;a.setAttribute("data-embed-version","2.3");a.setAttribute("data-widget-options",'{"embedSidebar": true}');a.setAttribute("data-widget-id","3467a6ad-0ff8-48b1-4809-c2c1bf928d5d");b.parentNode.insertBefore(a,b)}();</script><div id="chatlio-widget"></div><div id="ads"></div><iframe id="CrossStorageClient-22847b7a-4f38-48ab-8547-4b27d1fabbd6" style="display: none; position: absolute; top: -999px; left: -999px;" src="https://hub-cross-storage.pallco.com.mx"></iframe><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="https://vars.hotjar.com/box-de263bbc9261861ab6eefe1285fa249b.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>
+*3
+$9
+PEXPIREAT
+$32
+https://pallco.com.mx___DATA____
+$13
+2154025436107
+*3
+$3
+set
+$35
+https://pallco.com.mx___HEADERS____
+$15
+[object Object]
+*3
+$9
+PEXPIREAT
+$35
+https://pallco.com.mx___HEADERS____
+$13
+2154025436108
+*3
+$3
+set
+$49
+https://pallco.com.mx/favicon.png/?v2=___DATA____
+$6562
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Pallco</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="icon" type="image/x-icon" href="favicon.png?v2"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"><style>#init-cubic-app{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #fff;
+      text-align: center;
+    }
+    #init-cubic-app figure{
+      display: inline-block;
+      top: 50%;
+      margin-top: -34px;
+      position: relative;
+      text-align: center;
+    }
+    #init-cubic-app figure img{
+      display: block;
+      margin: 10px auto;
+      top: 50%;
+      width: 95px;
+      height: 27px;
+      position: relative;
+    }
+    #init-cubic-app figure span{
+      display: block;
+      font-family: sans-serif!important;
+      font-size: 18px!important;
+      font-weight: 300!important;
+    }</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"><script id="chatlio-widget-embed" src="https://w.chatlio.com/w.chatlio-widget.js" defer="" data-embed-version="2.3" data-widget-options="{&quot;embedSidebar&quot;: true}" data-widget-id="3467a6ad-0ff8-48b1-4809-c2c1bf928d5d"></script><script src="https://connect.facebook.net/signals/config/2039418709442739?v=2.8.39&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5QSVC49"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+    ga('create', 'UA-115569665-1', 'auto');</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5QSVC49');</script><!-- End Google Tag Manager --><link href="styles.c232dafc513494370e94.bundle.css" rel="stylesheet"><script async="" src="https://static.hotjar.com/c/hotjar-1063348.js?sv=6"></script><script type="text/javascript" src="https://w.chatlio.com/v5/w.chatlio-widget.js?loader-version=aed2c1a-1530566248761" data-loader-version="aed2c1a-1530566248761" async="" id="chatlio-widget-embed" data-embed-version="2.3" data-widget-options="{&quot;embedSidebar&quot;: true}" data-widget-id="3467a6ad-0ff8-48b1-4809-c2c1bf928d5d"></script><script type="text/javascript" src="https://w.chatlio.com/v5/vendor/chatlio.min.7ab10269.js"></script><link type="text/css" rel="stylesheet" href="https://w.chatlio.com/v5/main.cba5152e.css"><script type="text/javascript" src="https://w.chatlio.com/v5/vendor/emojione-1.4.1.min.2f0e13b4.js"></script><script async="" src="https://script.hotjar.com/modules-b712234a8d026cca77a2e3caece3a177.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head><body><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QSVC49" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) --><app-root ng-version="5.2.11"><router-outlet></router-outlet></app-root><script type="text/javascript" src="inline.65fc50deb0d7331c3037.bundle.js"></script><script type="text/javascript" src="polyfills.3231ae26e12594282693.bundle.js"></script><script type="text/javascript" src="main.a4f006bb95d98fd77910.bundle.js"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2039418709442739");fbq("set","agent","tmgoogletagmanager","2039418709442739");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2039418709442739&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<script type="text/javascript" id="">(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)};a._hjSettings={hjid:1063348,hjsv:6};d=c.getElementsByTagName("head")[0];b=c.createElement("script");b.async=1;b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv;d.appendChild(b)})(window,document,"https://static.hotjar.com/c/hotjar-",".js?sv\x3d");</script><script type="text/javascript" id="">window._chatlio=window._chatlio||[];
+!function(){var a=document.getElementById("chatlio-widget-embed");if(a&&window.ChatlioReact&&_chatlio.init)return void _chatlio.init(a,ChatlioReact);a=function(a){return function(){_chatlio.push([a].concat(arguments))}};for(var b="configure identify track show hide isShown isOnline page open showOrHide".split(" "),c=0;c<b.length;c++)_chatlio[b[c]]||(_chatlio[b[c]]=a(b[c]));a=document.createElement("script");b=document.getElementsByTagName("script")[0];a.id="chatlio-widget-embed";a.src="https://w.chatlio.com/w.chatlio-widget.js";
+a.defer=!0;a.setAttribute("data-embed-version","2.3");a.setAttribute("data-widget-options",'{"embedSidebar": true}');a.setAttribute("data-widget-id","3467a6ad-0ff8-48b1-4809-c2c1bf928d5d");b.parentNode.insertBefore(a,b)}();</script><div id="chatlio-widget"></div><div id="ads"></div><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="https://vars.hotjar.com/box-de263bbc9261861ab6eefe1285fa249b.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>
+*3
+$9
+PEXPIREAT
+$49
+https://pallco.com.mx/favicon.png/?v2=___DATA____
+$13
+2154025440328
+*3
+$3
+set
+$52
+https://pallco.com.mx/favicon.png/?v2=___HEADERS____
+$15
+[object Object]
+*3
+$9
+PEXPIREAT
+$52
+https://pallco.com.mx/favicon.png/?v2=___HEADERS____
+$13
+2154025440345

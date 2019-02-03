@@ -47,7 +47,7 @@ const base_conf = {
 		time: 604800000, // week
 		type: 'REDIS',
 		config: {
-			port: 6379,
+			port: 1,
 			url: 'redis'
 		}
 	}
