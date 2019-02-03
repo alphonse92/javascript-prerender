@@ -1,7 +1,6 @@
 import redis from 'redis'
 import util from 'util'
 
-console.log(util)
 let client
 
 function createClient(conf) {
@@ -11,12 +10,7 @@ function createClient(conf) {
     get: null,
     set: null,
   }
-
-  const createSchema = (client, key) => {
-    console.log("promifyng method", key)
-    return Object.assign(client, { [key]: util.promisify(redisClient[key].bind(client)) })
-  }
-
+  const createSchema = (client, key) => Object.assign(client, { [key]: util.promisify(redisClient[key].bind(client)) })
   return Object.keys(schema).reduce(createSchema, schema)
 }
 function getOrClientClient(conf) {

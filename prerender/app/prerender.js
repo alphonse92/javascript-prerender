@@ -81,7 +81,6 @@ async function connectPuppetter(browser) {
 export default async () => {
   try {
     debug("INFO", "Creating chromium instance browser", "config", config, "\n\n");
-    await loadCache();
     const browserInstance = await createBrowserInstance()
     const puppeteerConnection = await connectPuppetter(browserInstance);
     const controller = new Controller(puppeteerConnection)

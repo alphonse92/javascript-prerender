@@ -28,7 +28,6 @@ export class Controller {
   constructor(puppeteerConnection) {
     this.puppeteerConnection = puppeteerConnection
     this.cacheSystem = Factory.get(config.cache.type, config.cache.config)
-    console.log(this.cacheSystem)
   }
 
   send(res, headers, data) {
