@@ -59,7 +59,7 @@ export class Controller {
     const time = +config.cache.time
 
     debug('INFO', 'caching policy', time)
-    if (time !== 0) return
+    if (time === 0) return
 
     const { headers, data } = dataToBeStored
 
