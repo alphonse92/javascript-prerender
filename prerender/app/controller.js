@@ -78,8 +78,8 @@ export class Controller {
 
   async initCacheResponse(target) {
     this.response_cache = {
-      data: await cacheSystem.get(target + postfixForCachedData.DATA),
-      headers: await cacheSystem.get(target + postfixForCachedData.HEADERS),
+      data: await this.cacheSystem.get(target + postfixForCachedData.DATA),
+      headers: await this.cacheSystem.get(target + postfixForCachedData.HEADERS),
     }
   }
 

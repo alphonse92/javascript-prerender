@@ -4,8 +4,7 @@ import util from 'util'
 let client
 
 function createClient(conf) {
-  const redisClient =
-    redis.createClient(conf.port, conf.url, { 'return_buffers': true });
+  const redisClient = redis.createClient(conf.port, conf.url, { 'return_buffers': true });
   const schema = {
     get: null,
     set: null,
