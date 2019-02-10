@@ -76,9 +76,6 @@ export class PuppeteerRequest {
         .split(";")
         .filter((content) => content.indexOf("charset") < 0)
         .join(";")
-
-
-
   }
 
   getHeaders() {

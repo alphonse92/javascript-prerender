@@ -4,6 +4,7 @@ import config from './../config'
 import { PuppeteerRequest } from './PuppeteerRequest.class';
 import { debug } from './utils';
 import { Factory } from './lib/cache'
+import { SSL_OP_NETSCAPE_CA_DN_BUG } from 'constants';
 
 
 const postfixForCachedData = {
@@ -62,23 +63,40 @@ export class Controller {
     if (time === 0) return
 
     const { headers, data } = dataToBeStored
-
+    const JSONHeadders = JSON.stringify(headers)
+    debug('INFO', 'caching headers', headers, JSONHeadders)
     if (time > 0) {
       debug('INFO', 'must cache with  ', time, 'seconds', target)
       await this.cacheSystem.set(target + postfixForCachedData.DATA, data, 'EX', time)
-      await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers, 'EX', time)
+      await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders, 'EX', time)
       return
     }
     debug('INFO', 'must cache and it will never expire ', target)
     await this.cacheSystem.set(target + postfixForCachedData.DATA, data)
-    await this.cacheSystem.set(target + postfixForCachedData.HEADERS, headers)
+    await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders)
 
   }
 
   async initCacheResponse(target) {
+    const data = await this.cacheSystem.get(target + postfixForCachedData.DATA)
+    const headers = await this.cacheSystem.get(target + postfixForCachedData.HEADERS)
     this.response_cache = {
-      data: await this.cacheSystem.get(target + postfixForCachedData.DATA),
-      headers: await this.cacheSystem.get(target + postfixForCachedData.HEADERS),
+      data: data ? Buffer.from(data) : null,
+      headers: headers ? JSON.parse(headers) : null
+    }
+    const thereCachedData = !!this.response_cache.data
+    const thereHeadersData = !!this.response_cache.headers
+
+    if (!thereHeadersData || !thereCachedData) return
+
+    const contentType = this.response_cache.headers['content-type']
+    const hasContentType = !!contentType
+    const isATextData = hasContentType && contentType.toLowerCase().indexOf('text/') === 0;
+
+    debug('INFO', { contentType, hasContentType, isATextData })
+    if (hasContentType && isATextData) {
+      debug("INFO", 'data is to stringieable')
+      this.response_cache.data = this.response_cache.toString()
     }
   }
 
