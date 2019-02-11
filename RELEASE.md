@@ -1,3 +1,5 @@
 # Release 0.1.0
 
-- prerender can request succefully to target
+## New Features:
+
+- Adding support to redis

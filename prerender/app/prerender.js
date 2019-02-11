@@ -3,7 +3,7 @@ import cache from 'memory-cache'
 import puppeteer from 'puppeteer';
 import request from 'request-promise-native'
 
-import { ChromiumInvalidProtocol, } from './errors';
+import { ChromiumInvalidProtocol, } from './lib/errors';
 import { Controller } from './controller';
 import { debug } from './utils'
 import config from '../config'
@@ -81,7 +81,6 @@ async function connectPuppetter(browser) {
 export default async () => {
   try {
     debug("INFO", "Creating chromium instance browser", "config", config, "\n\n");
-    await loadCache();
     const browserInstance = await createBrowserInstance()
     const puppeteerConnection = await connectPuppetter(browserInstance);
     const controller = new Controller(puppeteerConnection)
