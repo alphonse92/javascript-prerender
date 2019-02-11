@@ -1,8 +1,17 @@
 import cache from 'memory-cache'
-import { PuppeteerRequest } from './PuppeteerRequest.class';
-import { debug, saveFile } from './utils';
-import config from './../config'
 import querystring from 'querystring'
+import config from './../config'
+import { PuppeteerRequest } from './PuppeteerRequest.class';
+import { debug } from './utils';
+import { Factory } from './lib/cache'
+import { SSL_OP_NETSCAPE_CA_DN_BUG } from 'constants';
+
+
+const postfixForCachedData = {
+  DATA: '___DATA____',
+  HEADERS: '___HEADERS____',
+}
+
 
 function getTarget(req) {
   const header = config.header_target;
@@ -19,6 +28,7 @@ export class Controller {
 
   constructor(puppeteerConnection) {
     this.puppeteerConnection = puppeteerConnection
+    this.cacheSystem = Factory.get(config.cache.type, config.cache.config)
   }
 
   send(res, headers, data) {
@@ -45,63 +55,74 @@ export class Controller {
     this.send(res, headers, data)
   }
 
-  async  cacheResponse(target, data) {
-    //config.cache < 0 cache request never expire
-    //config.cache === 0 , doesnt cache
-    //config.cache > 0, cache it and the expiration time is config.cache
-    //if config.cache === 0 and doesnt exist a cached request
-    const cache = +config.cache
-    if (cache !== 0) {
-      //create date 
-      let expiresAt = new Date();
-      //adding to date the amount of seconds that cache is valid
-      expiresAt.setSeconds(expiresAt.getSeconds() + config.cache);
-      //saving as string
-      data.expiresAt = expiresAt;
-      cache.put(target, data);
-      let cacheData = Object.assign({}, data);
-      cacheData.data = cacheData.data.toString("utf8");
-      cacheData.path = target;
-      let filename = config.cache_path + '/' + Date.now() + ".json";
-      debug("INFO", "Caching request to", target);
-      debug(" |_", "File name", filename);
-      return await saveFile(filename, JSON.stringify(cacheData, null, 2));
-      //return a single resolve promise for make saveCache data as async
+  async  cacheResponse(target, dataToBeStored) {
+
+    const time = +config.cache.time
+
+    debug('INFO', 'caching policy', time)
+    if (time === 0) return
+
+    const { headers, data } = dataToBeStored
+    const JSONHeadders = JSON.stringify(headers)
+    debug('INFO', 'caching headers', headers, JSONHeadders)
+    if (time > 0) {
+      debug('INFO', 'must cache with  ', time, 'seconds', target)
+      await this.cacheSystem.set(target + postfixForCachedData.DATA, data, 'EX', time)
+      await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders, 'EX', time)
+      return
+    }
+    debug('INFO', 'must cache and it will never expire ', target)
+    await this.cacheSystem.set(target + postfixForCachedData.DATA, data)
+    await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders)
+
+  }
+
+  async initCacheResponse(target) {
+    const data = await this.cacheSystem.get(target + postfixForCachedData.DATA)
+    const headers = await this.cacheSystem.get(target + postfixForCachedData.HEADERS)
+    this.response_cache = {
+      data: data ? Buffer.from(data) : null,
+      headers: headers ? JSON.parse(headers) : null
+    }
+    const thereCachedData = !!this.response_cache.data
+    const thereHeadersData = !!this.response_cache.headers
+
+    if (!thereHeadersData || !thereCachedData) return
+
+    const contentType = this.response_cache.headers['content-type']
+    const hasContentType = !!contentType
+    const isATextData = hasContentType && contentType.toLowerCase().indexOf('text/') === 0;
+
+    debug('INFO', { contentType, hasContentType, isATextData })
+    if (hasContentType && isATextData) {
+      debug("INFO", 'data is to stringieable')
+      this.response_cache.data = this.response_cache.toString()
     }
   }
 
-  isCachedResponseExpired(target) {
-    this.response_cache = cache.get(target)
-    debug("INFO", "valide if cache expired")
-    debug(" |_", "exist cache for the request?(", target, ")", !!this.response_cache)
-
-    if (!this.response_cache) return true
-
-    let now = new Date();
-    let expirationTime = new Date(this.response_cache.expiresAt);
-    let isExpired = now > expirationTime;
-    debug(" |_", "Current", "date", now);
-    debug(" |_", "Expiration", "date", expirationTime);
-    debug(" |_", "is expired?", isExpired);
-    return isExpired;
+  isValidTheCachedResponse() {
+    return !!this.response_cache.data
   }
 
-
-  async middleware(req, res, next) {
-    const target = getTarget(req)
-    if (!this.isCachedResponseExpired(target)) return this.sendFromCache(res)
+  async sendNotCachedData(target, req, res, next) {
     debug('INFO', 'cache for target: ', target, 'NOT FOUND')
     const puppeterRequest = new PuppeteerRequest(this.puppeteerConnection)
     try {
       debug("INFO", req.method.toUpperCase(), "requesting for :", target);
       await puppeterRequest.goto(req, target)
-      this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
+      await this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
     }
     catch (e) {
       console.log(e)
       this.error(res, e)
     }
+  }
 
+  async middleware(req, res, next) {
+    const target = getTarget(req)
+    await this.initCacheResponse(target)
+    if (this.isValidTheCachedResponse()) return this.sendFromCache(res)
+    this.sendNotCachedData(target, req, res, next)
   }
 
 }

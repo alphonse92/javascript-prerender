@@ -15,6 +15,7 @@
     "lodash": "^4.17.11",
     "memory-cache": "^0.2.0",
     "puppeteer": "^1.11.0",
+    "redis": "^2.8.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   },
