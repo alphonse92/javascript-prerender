@@ -1,5 +1,10 @@
 version: '3.3'
 services:
+  redis:
+    image: redis:alpine
+    volumes:
+      - ./redis:/data
+    command: redis-server --appendonly yes
   chromium:
     image: 'alpeware/chrome-headless-trunk'
     volumes:
@@ -7,8 +12,10 @@ services:
   prerender:
     depends_on:
       - chromium
+      - redis
     links:
       - chromium
+      - redis
     build: prerender
     command: npm run-script dev
     volumes:
@@ -20,7 +27,6 @@ services:
       port: 3000
       chromium: "http://chromium:9222"
       target: 'https://pallco.com.mx/'
-      cache: 0
     ports:
       - "3000:3000"
 

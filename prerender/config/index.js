@@ -39,12 +39,18 @@ const base_conf = {
 	hostname: 'localhost',
 	port: 3000,
 	debug: true,
-	cache: 604800000, // a week
 	userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
 	cache_path: './tmp/prerender/',
 	chromium: 'http://localhost:9222',
 	header_target: 'x-prerender-target',
-	cache:1
+	cache: {
+		time: 604800000, // week
+		type: 'REDIS',
+		config: {
+			port: 6379,
+			url: 'redis'
+		}
+	}
 }
 
 const base_headers = {}
