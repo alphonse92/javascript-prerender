@@ -11,6 +11,8 @@
   "email": "alejandromover92@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "circuit-breaker": "0.0.4",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "redis": "^2.8.0",
