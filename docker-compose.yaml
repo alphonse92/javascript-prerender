@@ -27,8 +27,19 @@ services:
       port: 3000
       chromium: "http://chromium:9222"
       target: 'https://pallco.com.mx/'
+  gateway: 
+    depends_on:
+      - prerender
+    links:
+      - prerender
+    build: gateway
+    command: npm run-script dev
+    volumes:
+        - ./gateway:/usr/src/app
     ports:
-      - "3000:3000"
+      - "8080:8080"
+      
+
 
 
   
