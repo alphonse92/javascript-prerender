@@ -15,6 +15,7 @@
     "circuit-breaker": "0.0.4",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "multer": "^1.4.1",
     "redis": "^2.8.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
