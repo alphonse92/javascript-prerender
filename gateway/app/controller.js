@@ -18,12 +18,11 @@ async function proxy(req, res, next) {
   const msName = baseUrlParts.shift()
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
   const msDomain = getMicroserviceDomain(headers, msName)
+  const path = baseUrlParts.join("/")
 
   if (msName === "health") return controller.health(req, res, next)
   if (!msDomain) return res.status(404).send()
   if (!canRequestToMicroservice(msName)) return res.status(401).send()
-
-  const path = baseUrlParts.join("/")
 
   try {
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
