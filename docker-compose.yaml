@@ -40,12 +40,10 @@ services:
       - "8080:8080"
     environment:
       NODE_ENV: "development"
-      env: 'development'
-      prerender: "http://prerender:3000" 
-      blacklist: "redis;chromium;prerender"
-      ms_prerender: "prerender:3000"
-      ms_api: "api:3000"
-      port: 8080
+      config_blacklist: "redis;chromium;prerender"
+      config_ms_prerender: "http://prerender:3000"
+      config_ms_api: "http://api:3000"
+      config_port: 8080
       
 
 
