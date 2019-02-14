@@ -9,8 +9,8 @@ export const LoggerOptions = {
     format.colorize(),
     format.json(),
     customFormat),
-  transports: [consoleTransport],
+  transports: [consoleTransport]
 }
 const logger = createLogger(LoggerOptions)
 export const LoggerLevels = ['error', 'warn', 'info', 'verbose', 'debug', 'silly']
-export const Logger = LoggerLevels.reduce((out, level) => Object.assign(out, { [level]: (data) => logger.log({ level, ...data }) }), {})
+export const Logger = LoggerLevels.reduce((out, level) => Object.assign(out, { [level]: (message) => logger.log({ level, message }) }), {})

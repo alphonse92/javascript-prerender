@@ -27,7 +27,6 @@ async function proxy(req, res, next) {
 
 async function sendRequest(res, next, isFormData, msName, msDomain, headers, method, path, query, body, files) {
   try {
-    console.log({msName,msDomain})
     if (msName === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
@@ -68,7 +67,6 @@ async function requestToMs(isFormData, msDomain, headers, method, path, query, b
 
   if (isFormData) options.formData = getOptionsForFormDataRequest(body, files)
   else options.body = body
-
   Logger.info(`Redirect To ${options.uri}`)
   return Promise.resolve(options)
   return await request(options)

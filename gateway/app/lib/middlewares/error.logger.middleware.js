@@ -7,7 +7,7 @@ export const ErrorLoggerMiddleware = (err, req, res, next) => {
   const status = err.status || SUCCESSFULL
   const message = err.message || UNEXPECTED_ERROR
   const data = err.data || null
-  const obj2log = { ...err, status, message, data }
-  Logger.error(obj2log)
+  const obj2log = { status, message, data }
+  Logger.error(message)
   res.status(status).json(message);
 }
