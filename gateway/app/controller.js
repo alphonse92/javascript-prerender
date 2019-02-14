@@ -3,7 +3,8 @@ import request from 'request-promise-native'
 import fs from 'fs'
 import { cloneDeep } from 'lodash'
 import config from './../config'
-import { debug } from './utils';
+import { Logger } from './utils';
+import { MicroserviceDoesNotExist, MicroserviceNotAllowed } from './lib/errors/gateway';
 
 const controller = {}
 
@@ -19,19 +20,22 @@ async function proxy(req, res, next) {
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
   const msDomain = getMicroserviceDomain(headers, msName)
   const path = baseUrlParts.join("/")
+  
+  await sendRequest(res, next, isFormData, msName, msDomain, headers, method, path, query, body, files)
 
-  if (msName === "health") return controller.health(req, res, next)
-  if (!msDomain) return res.status(404).send()
-  if (!canRequestToMicroservice(msName)) return res.status(401).send()
+}
 
+async function sendRequest(res, next, isFormData, msName, msDomain, headers, method, path, query, body, files) {
   try {
+    console.log({msName,msDomain})
+    if (msName === "health") return controller.health(req, res, next)
+    if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
+    if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
     return res.send(response)
   } catch (e) {
-    console.log(e)
-    return res.status(502).send("Gateway Error")
+    next(e)
   }
-
 }
 
 function canRequestToMicroservice(msName) {
@@ -48,6 +52,8 @@ function getMicroserviceDomain(headers, msName) {
   const redirectToPrerender = shouldRedirectToPrerender(userAgent)
   if (redirectToPrerender) return config.ms.prerender
   else return config.ms[msName]
+    ? config.ms[msName]
+    : config.ms.default
 }
 
 async function requestToMs(isFormData, msDomain, headers, method, path, query, body, files) {
@@ -62,6 +68,8 @@ async function requestToMs(isFormData, msDomain, headers, method, path, query, b
 
   if (isFormData) options.formData = getOptionsForFormDataRequest(body, files)
   else options.body = body
+
+  Logger.info(`Redirect To ${options.uri}`)
   return Promise.resolve(options)
   return await request(options)
 }
