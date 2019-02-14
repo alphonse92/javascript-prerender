@@ -27,8 +27,25 @@ services:
       port: 3000
       chromium: "http://chromium:9222"
       target: 'https://pallco.com.mx/'
+  gateway: 
+    depends_on:
+      - prerender
+    links:
+      - prerender
+    build: gateway
+    command: npm run-script dev
+    volumes:
+        - ./gateway:/usr/src/app
     ports:
-      - "3000:3000"
+      - "8080:8080"
+    environment:
+      NODE_ENV: "development"
+      config_blacklist: "redis;chromium;prerender"
+      config_ms_prerender: "http://prerender:3000"
+      config_ms_api: "http://api:3000"
+      config_port: 8080
+      
+
 
 
   

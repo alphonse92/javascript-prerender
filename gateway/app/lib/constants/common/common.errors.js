@@ -1,0 +1,1 @@
+export const UNEXPECTED_ERROR = 'Unexpected Error'
