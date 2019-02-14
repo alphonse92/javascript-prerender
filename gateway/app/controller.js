@@ -18,18 +18,18 @@ async function proxy(req, res, next) {
   const baseUrlParts = baseUrl.substring(1, baseUrl.length).split("/")
   const msName = baseUrlParts.shift()
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
-  const msDomain = getMicroserviceDomain(headers, msName)
+  const { msDomain, redirectToPrerender } = getMicroserviceDomain(headers, msName)
   const path = baseUrlParts.join("/")
-  
-  await sendRequest(res, next, isFormData, msName, msDomain, headers, method, path, query, body, files)
+  await sendRequest(res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files)
 
 }
 
-async function sendRequest(res, next, isFormData, msName, msDomain, headers, method, path, query, body, files) {
+async function sendRequest(res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files) {
   try {
     if (msName === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
+    if (redirectToPrerender) headers['x-prerender-target'] = config.ms.default
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
     return res.send(response)
   } catch (e) {
@@ -38,21 +38,29 @@ async function sendRequest(res, next, isFormData, msName, msDomain, headers, met
 }
 
 function canRequestToMicroservice(msName) {
-  const msNames = config.blacklist.split(';')
+  const msNames = config.blacklist
   return !msNames.includes(msName)
 }
 
 function shouldRedirectToPrerender(userAgent) {
+  for (let i in config.useragents.redirect) {
+    const ua2Redirect = config.useragents.redirect[i]
+    if (userAgent.indexOf(ua2Redirect) >= 0) return true
+  }
   return false
+
 }
 
 function getMicroserviceDomain(headers, msName) {
   const userAgent = headers['user-agent']
   const redirectToPrerender = shouldRedirectToPrerender(userAgent)
-  if (redirectToPrerender) return config.ms.prerender
-  else return config.ms[msName]
+  const data = {}
+  if (redirectToPrerender) data.msDomain = config.ms.prerender
+  else data.msDomain = config.ms[msName]
     ? config.ms[msName]
     : config.ms.default
+  data.redirectToPrerender = redirectToPrerender
+  return data
 }
 
 async function requestToMs(isFormData, msDomain, headers, method, path, query, body, files) {
@@ -69,7 +77,7 @@ async function requestToMs(isFormData, msDomain, headers, method, path, query, b
   else options.body = body
   Logger.info(`Redirect To ${options.uri}`)
   return Promise.resolve(options)
-  return await request(options)
+  // return await request(options)
 }
 
 function getOptionsForFormDataRequest(body, files) {
