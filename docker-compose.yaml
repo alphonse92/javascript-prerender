@@ -43,7 +43,7 @@ services:
       config_blacklist: "redis|chromium|prerender"
       config_ms_prerender: "http://prerender:3000"
       config_ms_api: "http://api:3000"
-      config_ms_default: 'https://pallco.com.mx/'
+      config_ms_default: 'https://pallco.com.mx'
       config_useragents_redirect: 'ia_archiver|googlebot|bingbot|yandex|baiduspider|facebot|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator'
       config_useragents_block: 'sogou'
       config_port: 8080

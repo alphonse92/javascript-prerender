@@ -14,13 +14,17 @@ function health(req, res, next) { res.send('Gateway says ok') }
 controller.proxy = proxy
 async function proxy(req, res, next) {
 
-  const { headers, baseUrl, body, files, method, params, query } = req
-  const baseUrlParts = baseUrl.substring(1, baseUrl.length).split("/")
-  const msName = baseUrlParts.shift()
+  const { headers, body, files, method, params, query } = req
+  const base = req.baseUrl
+  const baseUrl = base.substring(1, base.length)
+  const baseUrlParts = baseUrl.split("/")
+  const resource = baseUrlParts.shift()
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
-  const { msDomain, redirectToPrerender } = getMicroserviceDomain(headers, msName)
-  const path = baseUrlParts.join("/")
-  await sendRequest(res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files)
+  const { msDomain, redirectToPrerender, redirectToMicroservice } = getMicroserviceDomain(headers, resource)
+  let path
+  if (redirectToMicroservice) path = baseUrlParts.join("/")
+  else path = baseUrl
+  await sendRequest(res, next, redirectToPrerender, isFormData, resource, msDomain, headers, method, path, query, body, files)
 
 }
 
@@ -31,9 +35,17 @@ async function sendRequest(res, next, redirectToPrerender, isFormData, msName, m
     if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
     if (redirectToPrerender) headers['x-prerender-target'] = config.ms.default
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
-    return res.send(response)
-  } catch (e) {
-    next(e)
+    Logger.info(`[${response.uri}] =>  Responding \n\n ${JSON.stringify(response.headers, null, 2)} \n\n`)
+    return res
+      .status(response.status)
+      .set(response.headers)
+      .send(response.body)
+
+    // .status(response.statusCode)
+    // .set(response.headers)
+    // .send(response.message)
+  } catch (error) {
+    next(error)
   }
 }
 
@@ -50,34 +62,48 @@ function shouldRedirectToPrerender(userAgent) {
   return false
 
 }
-
-function getMicroserviceDomain(headers, msName) {
+/**
+ * 
+ * @param {*} headers 
+ * @param {string} resource is a string that indentify the resource that the user is trying for (for example a microservice)
+ */
+function getMicroserviceDomain(headers, resource) {
   const userAgent = headers['user-agent']
   const redirectToPrerender = shouldRedirectToPrerender(userAgent)
   const data = {}
   if (redirectToPrerender) data.msDomain = config.ms.prerender
-  else data.msDomain = config.ms[msName]
-    ? config.ms[msName]
+  else data.msDomain = config.ms[resource]
+    ? config.ms[resource]
     : config.ms.default
   data.redirectToPrerender = redirectToPrerender
+  data.redirectToMicroservice = data.msDomain !== config.ms.default
   return data
 }
 
-async function requestToMs(isFormData, msDomain, headers, method, path, query, body, files) {
-  const METHOD = method.toUpperCase()
-  const url = `${msDomain}/${path}`
-  const options = {
-    uri: url,
-    method: METHOD,
-    headers,
-    qs: query
+async function requestToMs(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
+  const method = requestMethod.toUpperCase()
+  const uri = `${msDomain}/${path}`
+  const resolveWithFullResponse = true
+  const encoding = null
+  const transform = (body, response, resolveWithFullResponse) => ({ response, uri, headers: response.headers, status: response.statusCode, body: response.body, request: response.request })
+  delete headers.host
+  const options = { uri, method: method, headers, qs, resolveWithFullResponse, transform, encoding }
+
+  if (method !== 'GET') {
+    if (isFormData) options.formData = getOptionsForFormDataRequest(body, files)
+    else if (Object.keys(body)) options.body = body
   }
 
-  if (isFormData) options.formData = getOptionsForFormDataRequest(body, files)
-  else options.body = body
   Logger.info(`Redirect To ${options.uri}`)
+
+  try {
+    const response = await request(options)
+
+    return response
+  } catch (e) {
+    return e.response
+  }
   return Promise.resolve(options)
-  // return await request(options)
 }
 
 function getOptionsForFormDataRequest(body, files) {
