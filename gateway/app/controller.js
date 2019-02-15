@@ -22,14 +22,19 @@ async function proxy(req, res, next) {
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
   const { msDomain, redirectToPrerender, redirectToMicroservice } = getMicroserviceDomain(headers, resource)
   let path
-  if (redirectToMicroservice) path = baseUrlParts.join("/")
-  else path = baseUrl
+  if (redirectToMicroservice) {
+    path = baseUrlParts.join("/")
+  } else {
+    path = baseUrl
+  }
   await sendRequest(res, next, redirectToPrerender, isFormData, resource, msDomain, headers, method, path, query, body, files)
 
 }
 
-async function sendRequest(res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files) {
+async function sendRequest(disableCache, res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files) {
+  
   try {
+    
     if (msName === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
@@ -40,10 +45,6 @@ async function sendRequest(res, next, redirectToPrerender, isFormData, msName, m
       .status(response.status)
       .set(response.headers)
       .send(response.body)
-
-    // .status(response.statusCode)
-    // .set(response.headers)
-    // .send(response.message)
   } catch (error) {
     next(error)
   }
