@@ -5,6 +5,7 @@
 
 1. docker
 2. docker-compose
+3. jq (https://stedolan.github.io/jq/download/)
 
 # Configuration
 
