@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 # Parameters
 # $1 is the commit message
 
@@ -30,10 +30,12 @@ MICROSERVICES=(
     COMMIT_MSG="updating library"
   fi;
   cd ./microservice-lib
-  git add ./microservice-lib
+  npm run build
+  git add .
   git commit -m "$1"
   git push
   cd ..
+  
 ## END GIT  TASK
 
 # STARTING TO UPDATE NPM PACKAGES
