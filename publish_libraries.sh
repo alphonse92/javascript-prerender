@@ -29,9 +29,11 @@ MICROSERVICES=(
   if [ -z "$COMMIT_MSG" ] ; then
     COMMIT_MSG="updating library"
   fi;
-
+  cd ./microservice-lib
   git add ./microservice-lib
   git commit -m "$1"
+  git push
+  cd ..
 ## END GIT  TASK
 
 # STARTING TO UPDATE NPM PACKAGES
