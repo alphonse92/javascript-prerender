@@ -30,9 +30,10 @@ MICROSERVICES=(
     COMMIT_MSG="updating library"
   fi;
   cd ./microservice-lib
+  npm test
   npm run build
   git add .
-  git commit -m "$1"
+  git commit -m "$COMMIT_MSG"
   git push
   cd ..
   
