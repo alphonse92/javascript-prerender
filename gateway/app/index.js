@@ -3,10 +3,9 @@ import bodyParser from 'body-parser'
 import multer from 'multer'
 import config from '../config'
 import controller from './controller'
-import winston from 'winston'
 import expressWinston from 'express-winston';
 import { ErrorLoggerMiddleware } from './lib/middlewares/error.logger.middleware';
-import { LoggerOptions } from './utils';
+import { LoggerOptions } from '@alphonse92/ms-lib';
 
 
 export default async function initApp() {

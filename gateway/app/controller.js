@@ -3,7 +3,7 @@ import request from 'request-promise-native'
 import fs from 'fs'
 import { cloneDeep } from 'lodash'
 import config from './../config'
-import { Logger } from './utils';
+import {  Logger } from '@alphonse92/ms-lib';
 import { MicroserviceDoesNotExist, MicroserviceNotAllowed } from './lib/errors/gateway';
 
 const controller = {}
@@ -13,7 +13,6 @@ function health(req, res, next) { res.send('Gateway says ok') }
 
 controller.proxy = proxy
 async function proxy(req, res, next) {
-
   const { headers, body, files, method, params, query } = req
   const base = req.baseUrl
   const baseUrl = base.substring(1, base.length)
@@ -28,16 +27,14 @@ async function proxy(req, res, next) {
     path = baseUrl
   }
   await sendRequest(res, next, redirectToPrerender, isFormData, resource, msDomain, headers, method, path, query, body, files)
-
 }
 
-async function sendRequest(disableCache, res, next, redirectToPrerender, isFormData, msName, msDomain, headers, method, path, query, body, files) {
-  
+async function sendRequest(res, next, redirectToPrerender, isFormData, resource, msDomain, headers, method, path, query, body, files) {
+
   try {
-    
-    if (msName === "health") return controller.health(req, res, next)
+    if (resource === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
-    if (!canRequestToMicroservice(msName)) new MicroserviceNotAllowed()
+    if (!canRequestToMicroservice(resource)) new MicroserviceNotAllowed()
     if (redirectToPrerender) headers['x-prerender-target'] = config.ms.default
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
     Logger.info(`[${response.uri}] =>  Responding \n\n ${JSON.stringify(response.headers, null, 2)} \n\n`)
@@ -61,8 +58,8 @@ function shouldRedirectToPrerender(userAgent) {
     if (userAgent.indexOf(ua2Redirect) >= 0) return true
   }
   return false
-
 }
+
 /**
  * 
  * @param {*} headers 
@@ -99,12 +96,10 @@ async function requestToMs(isFormData, msDomain, headers, requestMethod, path, q
 
   try {
     const response = await request(options)
-
     return response
   } catch (e) {
     return e.response
   }
-  return Promise.resolve(options)
 }
 
 function getOptionsForFormDataRequest(body, files) {

@@ -1,4 +1,4 @@
-import { Logger } from "../../utils";
+import { Logger } from "@alphonse92/ms-lib"
 import { UNEXPECTED_ERROR } from "../constants/common/common.errors";
 import { SUCCESSFULL } from "../constants/http.status";
 
