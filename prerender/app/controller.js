@@ -1,10 +1,8 @@
-import cache from 'memory-cache'
 import querystring from 'querystring'
 import config from './../config'
 import { PuppeteerRequest } from './PuppeteerRequest.class';
 import { debug } from './utils';
 import { Factory } from './lib/cache'
-import { SSL_OP_NETSCAPE_CA_DN_BUG } from 'constants';
 
 
 const postfixForCachedData = {
@@ -93,11 +91,7 @@ export class Controller {
     const hasContentType = !!contentType
     const isATextData = hasContentType && contentType.toLowerCase().indexOf('text/') === 0;
 
-    debug('INFO', { contentType, hasContentType, isATextData })
-    if (hasContentType && isATextData) {
-      debug("INFO", 'data is to stringieable')
-      this.response_cache.data = this.response_cache.toString()
-    }
+    if (hasContentType && isATextData) this.response_cache.data = this.response_cache.toString()
   }
 
   isValidTheCachedResponse() {
