@@ -15,6 +15,7 @@ export class PuppeteerRequest {
   constructor(browser) {
     this.browser = browser
     this.headers = {}
+    this._isHtml = false
   }
 
   setResponse(response) {
@@ -24,13 +25,13 @@ export class PuppeteerRequest {
   getHeaders() {
     return this.headers
   }
-  
+
   getResponse() {
     return this.response
   }
 
   isHtml() {
-    return this.isHtml
+    return this._isHtml
   }
 
 
@@ -65,9 +66,9 @@ export class PuppeteerRequest {
 
   async resolveHeadlessResponse(page, puppeteerResponse) {
     debug("INFO", "resolveHeadlessResponse");
-    this.isHtml = await this.valideHtmlResponse(page, puppeteerResponse)
+    this._isHtml = await this.valideHtmlResponse(page, puppeteerResponse)
     let response
-    if (this.isHtml) {
+    if (this._isHtml) {
       response = await page.content()
     } else {
       response = await puppeteerResponse.buffer();
@@ -98,5 +99,5 @@ export class PuppeteerRequest {
 
 
 
-  
+
 }

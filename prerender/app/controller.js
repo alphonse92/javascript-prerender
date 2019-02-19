@@ -84,10 +84,14 @@ export class Controller {
     const data = await this.cacheSystem.get(target + postfixForCachedData.DATA)
     const headers = await this.cacheSystem.get(target + postfixForCachedData.HEADERS)
     const isHtml = await this.cacheSystem.get(target + postfixForCachedData.IS_HTML)
+    const isHtmlString = isHtml ? isHtml.toString() : 'false'
+
     this.response_cache = {
       data: data ? Buffer.from(data) : null,
-      headers: headers ? JSON.parse(headers) : null
+      headers: headers ? JSON.parse(headers) : null,
+      isHtml: isHtmlString === 'true' || isHtmlString === true
     }
+
     const thereCachedData = !!this.response_cache.data
     const thereHeadersData = !!this.response_cache.headers
 
@@ -95,9 +99,9 @@ export class Controller {
 
     const contentType = this.response_cache.headers['content-type']
     const hasContentType = !!contentType
-    const isATextData = isHtml || (hasContentType && contentType.toLowerCase().indexOf('text/') === 0);
-
-    if (hasContentType && isATextData) this.response_cache.data = this.response_cache.toString()
+    const isATextData = hasContentType && contentType.toLowerCase().indexOf('text/') === 0;
+    if (this.response_cache.isHtml || (hasContentType && isATextData))
+      this.response_cache.data = this.response_cache.data.toString()
   }
 
   isValidTheCachedResponse() {
@@ -110,7 +114,7 @@ export class Controller {
     try {
       debug("INFO", req.method.toUpperCase(), "requesting for :", target);
       await puppeterRequest.goto(req, target)
-      await this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse())
+      await this.sendAndCache(target, res, puppeterRequest.getHeaders(), puppeterRequest.getResponse(), puppeterRequest.isHtml())
     }
     catch (e) {
       console.log(e)
