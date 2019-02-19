@@ -2,9 +2,10 @@
 import request from 'request-promise-native'
 import fs from 'fs'
 import { cloneDeep } from 'lodash'
-import config from './../config'
-import {  Logger } from '@alphonse92/ms-lib';
+import Config from './../config'
+import { Logger } from '@alphonse92/ms-lib';
 import { MicroserviceDoesNotExist, MicroserviceNotAllowed } from './lib/errors/gateway';
+import circuitBreaker from 'opossum'
 
 const controller = {}
 
@@ -21,7 +22,7 @@ async function proxy(req, res, next) {
   const isFormData = headers['content-type'] && headers['content-type'].indexOf('multipart/form-data') === 0
   const { msDomain, redirectToPrerender, redirectToMicroservice } = getMicroserviceDomain(headers, resource)
   let path
-  if (redirectToMicroservice) {
+  if (redirectToMicroservice && !redirectToPrerender) {
     path = baseUrlParts.join("/")
   } else {
     path = baseUrl
@@ -35,7 +36,7 @@ async function sendRequest(res, next, redirectToPrerender, isFormData, resource,
     if (resource === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(resource)) new MicroserviceNotAllowed()
-    if (redirectToPrerender) headers['x-prerender-target'] = config.ms.default
+    if (redirectToPrerender) headers['x-prerender-target'] = Config.ms.default
     const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
     Logger.info(`[${response.uri}] =>  Responding \n\n ${JSON.stringify(response.headers, null, 2)} \n\n`)
     return res
@@ -48,13 +49,13 @@ async function sendRequest(res, next, redirectToPrerender, isFormData, resource,
 }
 
 function canRequestToMicroservice(msName) {
-  const msNames = config.blacklist
+  const msNames = Config.blacklist
   return !msNames.includes(msName)
 }
 
 function shouldRedirectToPrerender(userAgent) {
-  for (let i in config.useragents.redirect) {
-    const ua2Redirect = config.useragents.redirect[i]
+  for (let i in Config.useragents.redirect) {
+    const ua2Redirect = Config.useragents.redirect[i]
     if (userAgent.indexOf(ua2Redirect) >= 0) return true
   }
   return false
@@ -69,13 +70,18 @@ function getMicroserviceDomain(headers, resource) {
   const userAgent = headers['user-agent']
   const redirectToPrerender = shouldRedirectToPrerender(userAgent)
   const data = {}
-  if (redirectToPrerender) data.msDomain = config.ms.prerender
-  else data.msDomain = config.ms[resource]
-    ? config.ms[resource]
-    : config.ms.default
+  if (redirectToPrerender) data.msDomain = Config.ms.prerender
+  else data.msDomain = Config.ms[resource]
+    ? Config.ms[resource]
+    : Config.ms.default
   data.redirectToPrerender = redirectToPrerender
-  data.redirectToMicroservice = data.msDomain !== config.ms.default
+  data.redirectToMicroservice = data.msDomain !== Config.ms.default
   return data
+}
+
+async function call(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
+  const breaker = circuitBreaker(requestToMs, Config.circuit)
+  return breaker.fire(isFormData, msDomain, headers, requestMethod, path, qs, body, files)
 }
 
 async function requestToMs(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
