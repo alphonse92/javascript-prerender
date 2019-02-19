@@ -8,6 +8,7 @@ import { Factory } from './lib/cache'
 const postfixForCachedData = {
   DATA: '___DATA____',
   HEADERS: '___HEADERS____',
+  IS_HTML: '___IS_HTML___'
 }
 
 
@@ -47,9 +48,9 @@ export class Controller {
     this.send(res, this.response_cache.headers, this.response_cache.data)
   }
 
-  async sendAndCache(target, res, headers, data) {
+  async sendAndCache(target, res, headers, data, isHtml = false) {
     debug('INFO', 'sending data, headers are', headers)
-    await this.cacheResponse(target, { headers, data })
+    await this.cacheResponse(target, { headers, data, isHtml })
     this.send(res, headers, data)
   }
 
@@ -60,24 +61,29 @@ export class Controller {
     debug('INFO', 'caching policy', time)
     if (time === 0) return
 
-    const { headers, data } = dataToBeStored
+    const { headers, data, isHtml } = dataToBeStored
     const JSONHeadders = JSON.stringify(headers)
+
     debug('INFO', 'caching headers', headers, JSONHeadders)
     if (time > 0) {
       debug('INFO', 'must cache with  ', time, 'seconds', target)
       await this.cacheSystem.set(target + postfixForCachedData.DATA, data, 'EX', time)
       await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders, 'EX', time)
+      await this.cacheSystem.set(target + postfixForCachedData.IS_HTML, isHtml.toString(), 'EX', time)
       return
     }
     debug('INFO', 'must cache and it will never expire ', target)
+
     await this.cacheSystem.set(target + postfixForCachedData.DATA, data)
     await this.cacheSystem.set(target + postfixForCachedData.HEADERS, JSONHeadders)
+    await this.cacheSystem.set(target + postfixForCachedData.IS_HTML, isHtml.toString())
 
   }
 
   async initCacheResponse(target) {
     const data = await this.cacheSystem.get(target + postfixForCachedData.DATA)
     const headers = await this.cacheSystem.get(target + postfixForCachedData.HEADERS)
+    const isHtml = await this.cacheSystem.get(target + postfixForCachedData.IS_HTML)
     this.response_cache = {
       data: data ? Buffer.from(data) : null,
       headers: headers ? JSON.parse(headers) : null
@@ -89,7 +95,7 @@ export class Controller {
 
     const contentType = this.response_cache.headers['content-type']
     const hasContentType = !!contentType
-    const isATextData = hasContentType && contentType.toLowerCase().indexOf('text/') === 0;
+    const isATextData = isHtml || (hasContentType && contentType.toLowerCase().indexOf('text/') === 0);
 
     if (hasContentType && isATextData) this.response_cache.data = this.response_cache.toString()
   }
