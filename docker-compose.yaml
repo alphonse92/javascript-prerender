@@ -48,6 +48,11 @@ services:
       config_ms_default: 'https://pallco.com.mx'
       config_useragents_redirect: 'ia_archiver|googlebot|bingbot|yandex|baiduspider|facebot|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator'
       config_useragents_block: 'sogou'
+
+      config_circuit_timeout: 3000
+      config_circuit_errorThresholdPercentage: 75
+      config_circuit_resetTimeout: 30000
+
       config_port: 8080
       
 
