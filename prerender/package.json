@@ -11,6 +11,7 @@
   "email": "alejandro_mover@hotmail.com",
   "license": "ISC",
   "dependencies": {
+    "@alphonse92/ms-lib": "git+ssh://git@github.com/alphonse92/microservice-lib.git",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "memory-cache": "^0.2.0",
