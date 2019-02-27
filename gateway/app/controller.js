@@ -3,8 +3,10 @@ import request from 'request-promise-native'
 import fs from 'fs'
 import { cloneDeep } from 'lodash'
 import Config from './../config'
-import { Logger, MicroserviceDoesNotExist, MicroserviceNotAllowed, ServiceUnavailable } from '@alphonse92/ms-lib';
+import { Logger, MicroserviceDoesNotExist, MicroserviceNotAllowed, ServiceUnavailable, HttpException } from '@alphonse92/ms-lib';
 import circuitBreaker from 'opossum'
+
+console.log(HttpException)
 
 const controller = {}
 
@@ -36,7 +38,7 @@ async function sendRequest(res, next, redirectToPrerender, isFormData, resource,
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(resource)) new MicroserviceNotAllowed()
     if (redirectToPrerender) headers['x-prerender-target'] = Config.ms.default
-    const response = await call(isFormData, msDomain, headers, method, path, query, body, files)
+    const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
     Logger.info(`[${response.uri}] =>  Responding \n\n ${JSON.stringify(response.headers, null, 2)} \n\n`)
     return res
       .status(response.status)
@@ -80,7 +82,7 @@ function getMicroserviceDomain(headers, resource) {
 
 async function call(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
   const breaker = circuitBreaker(requestToMs, Config.circuit)
-  // breaker.fallback(() => new ServiceUnavailable());
+  breaker.fallback(() => new ServiceUnavailable());
   return breaker.fire(isFormData, msDomain, headers, requestMethod, path, qs, body, files)
 }
 
@@ -99,8 +101,12 @@ async function requestToMs(isFormData, msDomain, headers, requestMethod, path, q
   }
 
   Logger.info(`Redirect To ${options.uri}`)
-
-  return  await request(options)
+  try { return await request(options) }
+  catch (requestError) {
+    const { response } = requestError
+    const { status, body } = response
+    throw new HttpException(status, body.toString())
+  }
   return response
 }
 
