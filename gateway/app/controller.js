@@ -80,7 +80,7 @@ function getMicroserviceDomain(headers, resource) {
 
 async function call(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
   const breaker = circuitBreaker(requestToMs, Config.circuit)
-  breaker.fallback(() => new ServiceUnavailable());
+  // breaker.fallback(() => new ServiceUnavailable());
   return breaker.fire(isFormData, msDomain, headers, requestMethod, path, qs, body, files)
 }
 
@@ -97,10 +97,11 @@ async function requestToMs(isFormData, msDomain, headers, requestMethod, path, q
     if (isFormData) options.formData = getOptionsForFormDataRequest(body, files)
     else if (Object.keys(body)) options.body = body
   }
-  
-  Logger.info(`Redirect To ${options.uri}`)
-  return await request(options)
 
+  Logger.info(`Redirect To ${options.uri}`)
+
+  return  await request(options)
+  return response
 }
 
 function getOptionsForFormDataRequest(body, files) {
