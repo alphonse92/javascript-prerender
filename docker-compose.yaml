@@ -1,5 +1,8 @@
 version: '3.3'
 services:
+# Software embebed into docker images
+  nats:
+    image: "nats"
   redis:
     image: redis:alpine
     volumes:
@@ -9,6 +12,8 @@ services:
     image: 'alpeware/chrome-headless-trunk'
     volumes:
       - ./chromium/data:/data alpeware/chrome-headless-trunk
+  
+# Ecosystem microservices  
   prerender:
     depends_on:
       - chromium
@@ -29,6 +34,7 @@ services:
       port: "3000"
       chromium: "http://chromium:9222"
       target: 'https://pallco.com.mx/'
+      config_nats_uri: "nats://nats:4222"
   gateway: 
     depends_on:
       - prerender
@@ -54,15 +60,6 @@ services:
       config_circuit_errorThresholdPercentage: 75
       config_circuit_resetTimeout: 0
 
+      config_nats_uri: "nats://nats:4222"
+
       config_port: 8080
-      
-
-
-
-  
-
-
-
-
-
-
