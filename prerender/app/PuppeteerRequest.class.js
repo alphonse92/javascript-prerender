@@ -15,7 +15,26 @@ export class PuppeteerRequest {
   constructor(browser) {
     this.browser = browser
     this.headers = {}
+    this._isHtml = false
   }
+
+  setResponse(response) {
+    this.response = response
+  }
+
+  getHeaders() {
+    return this.headers
+  }
+
+  getResponse() {
+    return this.response
+  }
+
+  isHtml() {
+    return this._isHtml
+  }
+
+
 
   async  goto(req, target, opt = { waitUntil: "networkidle2", navigation: { timeout: 30000 } }) {
 
@@ -47,9 +66,9 @@ export class PuppeteerRequest {
 
   async resolveHeadlessResponse(page, puppeteerResponse) {
     debug("INFO", "resolveHeadlessResponse");
-    const isHtml = await this.valideHtmlResponse(page, puppeteerResponse)
+    this._isHtml = await this.valideHtmlResponse(page, puppeteerResponse)
     let response
-    if (isHtml) {
+    if (this._isHtml) {
       response = await page.content()
     } else {
       response = await puppeteerResponse.buffer();
@@ -78,16 +97,7 @@ export class PuppeteerRequest {
         .join(";")
   }
 
-  getHeaders() {
-    return this.headers
-  }
 
-  setResponse(response) {
-    this.response = response
-  }
 
-  getResponse() {
-    return this.response
-  }
 
 }

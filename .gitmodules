@@ -1,0 +1,3 @@
+[submodule "microservice-lib"]
+	path = microservice-lib
+	url = git@github.com:alphonse92/microservice-lib.git

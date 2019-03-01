@@ -21,10 +21,12 @@ services:
     volumes:
         - ./prerender/tmp/:/tmp/prerender
         - ./prerender:/usr/src/app
+    ports: 
+      - "3000:3000"
     environment:
       NODE_ENV: "development"
       env: 'development'
-      port: 3000
+      port: "3000"
       chromium: "http://chromium:9222"
       target: 'https://pallco.com.mx/'
   gateway: 
@@ -40,9 +42,18 @@ services:
       - "8080:8080"
     environment:
       NODE_ENV: "development"
-      config_blacklist: "redis;chromium;prerender"
+      config_blacklist: "redis|chromium|prerender"
       config_ms_prerender: "http://prerender:3000"
       config_ms_api: "http://api:3000"
+      config_ms_phantom: "http://phantom:3000"
+      config_ms_default: 'https://pallco.com.mx'
+      config_useragents_redirect: 'ia_archiver|googlebot|bingbot|yandex|baiduspider|facebot|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator'
+      config_useragents_block: 'sogou'
+
+      config_circuit_timeout: 3000
+      config_circuit_errorThresholdPercentage: 75
+      config_circuit_resetTimeout: 0
+
       config_port: 8080
       
 
