@@ -6,12 +6,8 @@ import Config from './../config'
 import { Logger, MicroserviceDoesNotExist, MicroserviceNotAllowed, ServiceUnavailable, HttpException } from '@alphonse92/ms-lib';
 import circuitBreaker from 'opossum'
 
-console.log(HttpException)
-
 const controller = {}
 
-controller.health = health
-function health(req, res, next) { res.send('Gateway says ok') }
 
 controller.proxy = proxy
 async function proxy(req, res, next) {
@@ -32,21 +28,19 @@ async function proxy(req, res, next) {
 }
 
 async function sendRequest(res, next, redirectToPrerender, isFormData, resource, msDomain, headers, method, path, query, body, files) {
-
   try {
-    if (resource === "health") return controller.health(req, res, next)
     if (!msDomain) throw new MicroserviceDoesNotExist(msDomain)
     if (!canRequestToMicroservice(resource)) new MicroserviceNotAllowed()
     if (redirectToPrerender) headers['x-prerender-target'] = Config.ms.default
-    const response = await requestToMs(isFormData, msDomain, headers, method, path, query, body, files)
-    Logger.info(`[${response.uri}] =>  Responding \n\n ${JSON.stringify(response.headers, null, 2)} \n\n`)
-    return res
-      .status(response.status)
-      .set(response.headers)
-      .send(response.body)
+    resolveIncommingRequest(res, await call(isFormData, msDomain, headers, method, path, query, body, files))
   } catch (error) {
+    console.log(error)
     next(error)
   }
+}
+function resolveIncommingRequest(ExpressResponse, { headers, status, body, uri }) {
+  Logger.info(`[${uri}] =>  Responding \n\n ${JSON.stringify(headers, null, 2)} \n\n`)
+  return ExpressResponse.status(status).set(headers).send(body)
 }
 
 function canRequestToMicroservice(msName) {
@@ -82,8 +76,11 @@ function getMicroserviceDomain(headers, resource) {
 
 async function call(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
   const breaker = circuitBreaker(requestToMs, Config.circuit)
-  breaker.fallback(() => new ServiceUnavailable());
-  return breaker.fire(isFormData, msDomain, headers, requestMethod, path, qs, body, files)
+  const fallback = () => new ServiceUnavailable()
+  breaker.fallback(fallback);
+  const response = breaker.fire(isFormData, msDomain, headers, requestMethod, path, qs, body, files)
+  if (response instanceof HttpException) throw response;
+  return response
 }
 
 async function requestToMs(isFormData, msDomain, headers, requestMethod, path, qs, body, files) {
@@ -105,7 +102,7 @@ async function requestToMs(isFormData, msDomain, headers, requestMethod, path, q
   catch (requestError) {
     const { response } = requestError
     const { status, body } = response
-    throw new HttpException(status, body.toString())
+    return new HttpException(status, body.toString())
   }
   return response
 }

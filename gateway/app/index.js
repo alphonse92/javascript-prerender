@@ -16,11 +16,8 @@ export default async function initApp() {
 	app.use(multerMiddleware.any())
 	app.use(bodyParser.urlencoded({ extended: false }))
 	app.use(bodyParser.json())
-
 	app.use('*', await controller.proxy)
-
 	app.use(ErrorLoggerMiddleware);
-
 	app.disable('x-powered-by')
 	const server = app.listen(config.port, function () {
 		var port = server.address().port;
