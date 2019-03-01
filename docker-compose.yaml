@@ -52,7 +52,7 @@ services:
 
       config_circuit_timeout: 3000
       config_circuit_errorThresholdPercentage: 75
-      config_circuit_resetTimeout: 30000
+      config_circuit_resetTimeout: 0
 
       config_port: 8080
       
