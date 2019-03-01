@@ -2,7 +2,11 @@ version: '3.3'
 services:
 # Software embebed into docker images
   nats:
+    volumes:
+      - ./nats/gnatsd.conf:./gnatsd.conf
     image: "nats"
+    environment:
+        routes: routes=nats-route://ruser:T0pS3cr3t@otherdockerhost:6222
   redis:
     image: redis:alpine
     volumes:
